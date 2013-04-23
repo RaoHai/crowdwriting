@@ -1,0 +1,213 @@
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select  `columns`.`ColumnsId` , `columns`.`template` from `columns`   where `columns`.`ColumnsID` ='13'
+SQL:select * from `childcolumns`   where `childcolumns`.`parentColumns` ='13'
+SQL:select * from `contents`   where `contents`.`parentId` ='13'
+SQL:select * from `columns`   where `columns`.`ColumnsId` ='13'
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
+SQL:select  `columns`.`ColumnsId` , `columns`.`template` from `columns`   where `columns`.`ColumnsID` =''
+SQL:select * from `childcolumns`   where `childcolumns`.`parentColumns` =''
+SQL:select * from `contents`   where `contents`.`parentId` =''
+SQL:select * from `columns`   where `columns`.`ColumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select  `columns`.`ColumnsId` , `columns`.`template` from `columns`   where `columns`.`ColumnsID` =''
+SQL:select * from `childcolumns`   where `childcolumns`.`parentColumns` =''
+SQL:select * from `contents`   where `contents`.`parentId` =''
+SQL:select * from `columns`   where `columns`.`ColumnsId` =''
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  where `columns`.`isshow`='1' limit 0,30
+SQL:select *,`columns`.`ColumnsId`  from  `columns`  limit 0,30
+SQL:select * from `childcolumns`   where `childcolumns`.`ChildcolumnsId` =''
