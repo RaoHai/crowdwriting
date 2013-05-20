@@ -142,7 +142,7 @@ class ControllerBase implements Iterator
                 }
                 $newLines[] = $line;
             }
-        return ' "<!-- Part Template:  -->\n";?>'.implode('', $newLines). '<?php echo "<!-- Template End  -->\n"; ';
+        return ' "<!-- Part Template: '.$part_template_name.' -->\n";?>'.implode('', $newLines). '<?php echo "<!-- Template End  -->\n"; ';
 
     }
     private function transformSyntax($input) {

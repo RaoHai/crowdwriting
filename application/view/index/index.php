@@ -5,17 +5,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <title>CW-index-<?php echo $this->values["domain"]; ?></title>
+  <title>Crowd Writing--<?php echo $this->values["domain"]; ?></title>
   <link href="stylesheets/app.css" rel="stylesheet" type="text/css"> 
   <link href="stylesheets/font-awesome.css" rel="stylesheet" type="text/css"> 
   <script src="javascripts/vendor/custom.modernizr.js"></script>
 </head>
 <body>
-  <nav class="top-bar">
+  <?php echo  "<!-- Part Template: nav -->\n";?><nav class="top-bar">
     <ul class="title-area">
       <!-- Title Area -->
       <li class="name">
-        <h1><a href="#">CW </a></h1>
+        <h1><a href="#"><img  class='logo' src='/img/logo.png'></a></h1>
       </li>
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>
@@ -41,14 +41,14 @@
               <span class="user-name">Ruly</span>
               <span class="user-email">surgesoft@gmail.com</span>
             </li>
-            <li class='normal'><a href='#'>Manager Profile</a></li>
-            <li class='normal'><a href='#'>Mail</a></li>
+            <li class='normal'><a href='#'><i class="icon-info"></i>Manager Profile</a></li>
+            <li class='normal'><a href='#'><i class="icon-envelope"></i>Mail</a></li>
             <li class="split"></li>
             <li class='normal'><a href='#'>Invite someone to CW</a></li>
             <li class="split"></li>
-            <li class='normal'><a href='#'>Help</a></li>
+            <li class='normal'><a href='#'><i class="icon-question"></i>Help</a></li>
             <li class="split"></li>
-            <li class='normal'><a href='#'>Log Out</a></li>
+            <li class='normal'><a href='#'><i class="icon-signout"></i>Log Out</a></li>
             <span class="shadow shadow-left"></span>
             <span class="shadow shadow-right"></span>
             <span class="shadow shadow-bottom"></span>
@@ -56,9 +56,16 @@
         </li>
       </ul>
     </section>
-  </nav>
- 
-  <script src='javascripts/vendor/zepto.js'></script>
+  </nav><?php echo "<!-- Template End  -->\n"; ; ?>
+  <section class="main">
+    <div class="row collapse">
+      <div class="columns large-6">
+        <input type="text" value='Untitled Document'>
+        <textarea class='editor' id='editor'></textarea>
+      </div>
+    </div>
+  </section> 
+  <?php echo  "<!-- Part Template: script -->\n";?>  <script src='javascripts/vendor/zepto.js'></script>
   <script src="javascripts/foundation/foundation.js"></script>
   <script src="javascripts/foundation/foundation.alerts.js"></script>
   <script src="javascripts/foundation/foundation.clearing.js"></script>
@@ -74,6 +81,6 @@
   <script src="javascripts/foundation/foundation.tooltips.js"></script>
   <script src="javascripts/foundation/foundation.topbar.js"></script>
 
-    <script src='javascripts/app.js'></script>
-  </body>
-  </html>
+  <script src='javascripts/app.js'></script><?php echo "<!-- Template End  -->\n"; ; ?>
+</body>
+</html>

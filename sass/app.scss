@@ -45,6 +45,8 @@
 // @import "foundation/components/thumbs";
 // @import "foundation/components/tooltips";
 // @import "foundation/components/dropdown";
+
+
 span.shadow{
 	display: block;
 	position: absolute;
@@ -83,6 +85,10 @@ span.shadow{
 	.name{
 		h1{
 			padding:  0 25px;
+		}
+		.logo{
+			width:36px;
+			height: 36px;
 		}
 	}
 }
@@ -143,6 +149,14 @@ span.shadow{
 						color:#1491ad;
 					}
 				}
+				li.normal{
+					i{
+						position: absolute;
+						margin-left: -30px;
+						margin-top: 3px;
+
+					}
+				}
 				li.normal:hover{
 						background-color: #69bed7;
 						color: white;
@@ -194,5 +208,15 @@ span.shadow{
 			}
 		}
 
+	}
+}
+section.main{
+	color:#584f4f;
+	.row{
+		max-width: 100%;
+		padding:0 10px;
+	}
+	.editor{
+		resize:none;
 	}
 }
