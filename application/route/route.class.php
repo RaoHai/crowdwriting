@@ -28,6 +28,7 @@ class Route
         $this->moudle_arr  = $moduleArr;
         $this->route_arr   = $routeArr;
         $uri == NULL && $uri = $_SERVER['REDIRECT_URL'];
+        $uri = isset($uri) ? $uri : $_REQUEST['url'];
         $this->_uri   = $uri;
 
         $this->init();
