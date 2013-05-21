@@ -11,7 +11,11 @@
 		public function _index()//自定义你的action方法
 		{
 		
-			
+			echo "hello";
+		}
+		public function _world($p)
+		{
+			echo "hello world".$p;
 		}
 	}
 ?>

@@ -46,7 +46,10 @@
 // @import "foundation/components/tooltips";
 // @import "foundation/components/dropdown";
 
-
+.shadow-box{
+	border:1px solid #cccccc;
+	margin: 0 auto;
+}
 span.shadow{
 	display: block;
 	position: absolute;
@@ -128,19 +131,22 @@ span.shadow{
 		li{
 			ul.action-dropdown{
 				display: none;
+				background: none;
 				margin: 5px;
+				margin-top: 15px;
 				position: absolute;
-				right: 10px;
-				background-color: white;
+				right: 30px;
+				z-index: 2013;
 				li{
 					margin-left: 10px;
-					padding: 10px 25px 10px 80px;
+					padding: 0 25px 0 80px;
 					font-size: 12px;
+					background-color: white;
 					float: none;
 					
 					a{
 						margin: 0;
-						padding: 0;
+						padding: 10px 0;
 						background: none;
 						line-height: 20px;
 						color:#584f4f;
@@ -218,5 +224,13 @@ section.main{
 	}
 	.editor{
 		resize:none;
+		line-height: 155%;
+	}
+	.preview{
+		background-color: #FCF6EF;
+		padding: 8px 15px;
+		overflow-y:scroll;
+		color: rgb(68, 68, 68);
+		font-family: Arvo, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	}
 }

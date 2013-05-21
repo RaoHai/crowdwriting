@@ -116,6 +116,7 @@ class Route
         $acl = Acl::getInstance();
         $acl->addRole("guest");
         $acl->allow("guest","index");
+        $acl->allow("guest","article");
         $acl->allow("guest","columns");
         $acl->allow("guest","childcolumns");
         $acl->allow("guest","contents");
