@@ -6723,4 +6723,13 @@ section.main .preview {
   overflow-y: scroll;
   color: #444444;
   font-family: Arvo, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  position: relative;
+}
+/* line 236, ../sass/app.scss */
+section.main .preview .inner {
+  position: relative;
+}
+/* line 238, ../sass/app.scss */
+section.main .preview .inner * {
+  position: relative;
 }

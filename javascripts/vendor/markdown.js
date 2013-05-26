@@ -161,7 +161,7 @@ function count_lines( str ) {
 }
 
 // Internal - split source into rough blocks
-Markdown.prototype.split_blocks = function splitBlocks( input, startLine ) {
+expose.split_blocks =  Markdown.prototype.split_blocks = function splitBlocks( input, startLine ) {
   input = input.replace(/(\r\n|\n|\r)/g, "\n");
   // [\s\S] matches _anything_ (newline or space)
   var re = /([\s\S]+?)($|\n(?:\s*\n|$)+)/g,
@@ -817,7 +817,7 @@ Markdown.dialects.Gruber.inline = {
       // [ length of input processed, node/children to add... ]
       // Only esacape: \ ` * _ { } [ ] ( ) # * + - . !
       if ( text.match( /^\\[\\`\*_{}\[\]()#\+.!\-]/ ) )
-        return [ 2, text[1] ];
+        return [ 2, text.charAt( 1 ) ];
       else
         // Not an esacpe
         return [ 1, "\\" ];
@@ -1096,7 +1096,7 @@ Markdown.DialectHelpers.inline_until_char = function( text, want ) {
       nodes = [];
 
   while ( true ) {
-    if ( text[ consumed ] == want ) {
+    if ( text.charAt( consumed ) == want ) {
       // Found the character we were looking for
       consumed++;
       return [ consumed, nodes ];
@@ -1449,7 +1449,7 @@ function render_tree( jsonml ) {
   }
 
   while ( jsonml.length ) {
-    content.push( arguments.callee( jsonml.shift() ) );
+    content.push( render_tree( jsonml.shift() ) );
   }
 
   var tag_attrs = "";
@@ -1600,7 +1600,7 @@ function convert_tree_to_html( tree, references, options ) {
   }
 
   for ( ; i < jsonml.length; ++i ) {
-    jsonml[ i ] = arguments.callee( jsonml[ i ], references, options );
+    jsonml[ i ] = convert_tree_to_html( jsonml[ i ], references, options );
   }
 
   return jsonml;
@@ -1625,7 +1625,7 @@ function merge_text_nodes( jsonml ) {
     }
     // if it's not a string recurse
     else {
-      arguments.callee( jsonml[ i ] );
+      merge_text_nodes( jsonml[ i ] );
       ++i;
     }
   }

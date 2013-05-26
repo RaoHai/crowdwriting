@@ -232,5 +232,12 @@ section.main{
 		overflow-y:scroll;
 		color: rgb(68, 68, 68);
 		font-family: Arvo, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		position: relative;
+		.inner{
+			position: relative;
+			* {
+				position: relative;
+			}
+		}
 	}
 }
