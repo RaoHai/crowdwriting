@@ -14,7 +14,8 @@ $(function () {
 			var blocks, block, lineNumber, domToAdd;
 			lineMapper = {};
 			lineNumber = 0;
-			blocks = markdown.split_blocks($_editor.val());
+			markdown.parser($_editor.val())
+			/*blocks = markdown.split_blocks($_editor.val());
 			while (blocks.length) {
 				block = blocks.shift();//.toString();
 				lineNumber = block.lineNumber;
@@ -28,7 +29,7 @@ $(function () {
 						lineMapper[lineNumber] = $dom;
 					}
 				//console.log(markdown.toHTML(b));
-			}
+			}*/
 
 		};
 		fnScrollPreviwer = function (obj) {
@@ -71,6 +72,7 @@ $(function () {
 		};
 		_init = function () {
 			fnParser($_editor.val());
+			/*
 			$_editor.scroll(function () {
 				fnScrollPreviwer($(this));
 				$_editor.locked = true;
@@ -92,6 +94,7 @@ $(function () {
 					$_previewer.locked = false;
 				}, 200);
 			});
+*/
 
 		};
 

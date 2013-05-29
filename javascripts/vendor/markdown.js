@@ -98,6 +98,7 @@ expose.toHTML = function toHTML( source , dialect , options ) {
 expose.toHTMLTree = function toHTMLTree( input, dialect , options ) {
   // convert string input to an MD tree
   if ( typeof input ==="string" ) input = this.parse( input, dialect );
+  console.log(input);
 
   // Now convert the MD tree to an HTML tree
 
@@ -221,6 +222,7 @@ Markdown.prototype.processBlock = function processBlock( block, next ) {
       if ( !isArray(res) || ( res.length > 0 && !( isArray(res[0]) ) ) )
         this.debug(ord[i], "didn't return a proper array");
       //D:this.debug( "" );
+      res.lineNumber = block.lineNumber;
       return res;
     }
   }
@@ -250,11 +252,11 @@ Markdown.prototype.toTree = function toTree( source, custom_root ) {
 
     blocks:
     while ( blocks.length ) {
-      var b = this.processBlock( blocks.shift(), blocks );
-
+      var block = blocks.shift();
+      var b = this.processBlock( block, blocks );
       // Reference blocks and the like won't return any content
       if ( !b.length ) continue blocks;
-
+      console.log(b);
       this.tree.push.apply( this.tree, b );
     }
     return this.tree;
