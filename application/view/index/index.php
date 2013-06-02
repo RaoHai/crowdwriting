@@ -9,6 +9,17 @@
   <link href="stylesheets/app.css" rel="stylesheet" type="text/css"> 
   <link href="stylesheets/font-awesome.css" rel="stylesheet" type="text/css"> 
   <script src="javascripts/vendor/custom.modernizr.js"></script>
+  <script>
+  var require = { baseUrl : "javascripts", deps : [ "main"] };
+  var viewerMode = false;
+  </script>
+  <script src="javascripts/lib/require.js"></script>
+  <style>
+  #wmd-preview{
+    padding: 19px;
+    overflow: auto;
+  }
+  </style>
 </head>
 <body>
   <?php echo  "<!-- Part Template: nav -->\n";?><nav class="top-bar">
@@ -21,9 +32,12 @@
     </ul>
     <section class="top-bar-section">
       <ul class="left">
-        <li><a href="/"><span><i class="icon-pencil"></i> Write</span></a></li>
+        <li><a href="/" class='active'><span><i class="icon-pencil"></i> Write</span></a></li>
+        <li class="split"></li>
         <li><a href="browse"><span>Browse</span></a></li>
+        <li class="split"></li>
         <li><a href="explore"><span>Explore</span></a></li>
+        <li class="split"></li>
         <li><a href="about"><span>About</span></a></li>
       </ul>
       <ul class="right">
@@ -54,50 +68,45 @@
             <span class="shadow shadow-bottom"></span>
           </ul>
         </li>
+        <li>
+          <a></a>
+        </li>
       </ul>
     </section>
   </nav><?php echo "<!-- Template End  -->\n"; ; ?>
+  <div id="wmd-button-bar" style='display:none'></div>
   <section class="main">
     <div class="row">
       <div class="columns large-6">
         <input type="text" value='Untitled Document'>
-        <textarea class='editor' id='editor'>
-* **Shadow DOM**: 图1右边的一系列DOM对象的集合
-* **shadow DOM subtrees** ( **Shadow DOM子树** ):  **Shadow DOM** 由多个DOM节点树组成。在渲染时，**Shadow DOM子树** 会把 **shadow host** 的内容替换成 **Shadow DOM子树** 自身的内容进行渲染
-* **shadow boundaries** : **Shadow DOM 子树** 之间的封装边界
-* **shadow host** : 在文档中承载 **shadow DOM子树** 的节点
-* **shadow root** : Shadow DOM 中每一个 **shadow DOM子树** 的根节点
-* **insert point** : 为了让 **shadow DOM子树** 和  **shadow host** 的节点组合起来，使用 **insert point** 来指定 **shadow host** 的字节点插入到 **shadow DOM子树** 中的位置
-* **distribution** : 将 **shadow host** 的字节点插入到 **shadow DOM子树** 中的 **insert point** ，再用 **shadow DOM子树** 替换掉 **shadow host** 的内容进行渲染，这个过程被成为 **distribution**
-
-    </textarea>
+        <textarea class='editor' id='wmd-input'>
+        </textarea>
       </div>
       <div class="columns large-6">
-        <div class="preview shadow-box" id='preview'>
-          <div class="inner">
-            
+        <div cl ass="preview shadow-box" id='wmd-preview'>
+          <div class="inner" id='previewInner'>
+
           </div>
         </div>
       </div>
     </div>
   </section> 
-  <script src='javascripts/vendor/myrkdown.js'></script>
-  <?php echo  "<!-- Part Template: script -->\n";?>  <script src='javascripts/vendor/zepto.js'></script>
-  <script src="javascripts/foundation/foundation.js"></script>
-  <script src="javascripts/foundation/foundation.alerts.js"></script>
-  <script src="javascripts/foundation/foundation.clearing.js"></script>
-  <script src="javascripts/foundation/foundation.cookie.js"></script>
-  <script src="javascripts/foundation/foundation.dropdown.js"></script>
-  <script src="javascripts/foundation/foundation.forms.js"></script>
-  <script src="javascripts/foundation/foundation.joyride.js"></script>
-  <script src="javascripts/foundation/foundation.magellan.js"></script>
-  <script src="javascripts/foundation/foundation.orbit.js"></script>
-  <script src="javascripts/foundation/foundation.placeholder.js"></script>
-  <script src="javascripts/foundation/foundation.reveal.js"></script>
-  <script src="javascripts/foundation/foundation.section.js"></script>
-  <script src="javascripts/foundation/foundation.tooltips.js"></script>
-  <script src="javascripts/foundation/foundation.topbar.js"></script>
-
-  <script src='javascripts/app.js'></script><?php echo "<!-- Template End  -->\n"; ; ?>
+  <textarea id="md-section-helper" class='editor helper'></textarea>
+   <?php echo  "<!-- Part Template: script -->\n";?><script src="javascripts/vendor/jquery.js"> </script>
+<script src="javascripts/foundation/foundation.js"></script>
+<script src="javascripts/foundation/foundation.alerts.js"></script>
+<script src="javascripts/foundation/foundation.clearing.js"></script>
+<script src="javascripts/foundation/foundation.cookie.js"></script>
+<script src="javascripts/foundation/foundation.dropdown.js"></script>
+<script src="javascripts/foundation/foundation.forms.js"></script>
+<script src="javascripts/foundation/foundation.joyride.js"></script>
+<script src="javascripts/foundation/foundation.magellan.js"></script>
+<script src="javascripts/foundation/foundation.orbit.js"></script>
+<script src="javascripts/foundation/foundation.placeholder.js"></script>
+<script src="javascripts/foundation/foundation.reveal.js"></script>
+<script src="javascripts/foundation/foundation.section.js"></script>
+<script src="javascripts/foundation/foundation.tooltips.js"></script>
+<script src="javascripts/foundation/foundation.topbar.js"></script>
+<script src="javascripts/app.js"></script><?php echo "<!-- Template End  -->\n"; ; ?>
 </body>
 </html>
