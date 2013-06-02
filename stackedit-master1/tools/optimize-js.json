@@ -1,7 +1,0 @@
-// RequireJS optimizer configuration file
-({
-    baseUrl: "../js",
-    name: "main",
-    out: "../js/main-min.js",
-    mainConfigFile: '../js/main.js',
-})

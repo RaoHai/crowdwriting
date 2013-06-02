@@ -46,10 +46,6 @@
 // @import "foundation/components/tooltips";
 // @import "foundation/components/dropdown";
 
-
-input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, textarea:focus {
-	box-shadow: none;
-}
 .shadow-box{
 	border:1px solid #cccccc;
 	margin: 0 auto;
@@ -87,35 +83,9 @@ span.shadow{
 	}
 }
 
-@media screen and (min-width: 960px){
-	body{
-		padding:1.5em 1.5em 0 1.5em;
-	}
-}
-@media screen and (max-width: 960px){
-	body{
-		padding:0;
-	}
-	
-}
-@media screen and (max-width: 800px){
-	ul.right{
-		display: none;
-	}
 
-}
 .top-bar{
-	height: 75px;
-	padding: 30px 0 0 0;
-	&.expanded{
-		padding: 0;
-		.name{
-			bottom: 0;
-		}
-	}
 	.name{
-		position: relative;
-		bottom: 10px;
 		h1{
 			padding:  0 25px;
 		}
@@ -128,29 +98,9 @@ span.shadow{
 
 .top-bar-section{
 	ul{
-		background: #F8F8F8;
 		li{
-			border-right: 1px solid #f8f8f8;
-			&.split{
-				border-left: 1px solid #ccc;
-			}
-			a{
-				background: #F8F8F8;
-				i{
-					margin: 0 5px;
-				}
-			}
-			a:not(.botton){
-				padding: 0 35px;
-			}
-			@media screen and (max-width: 960px){
-				a:not(.botton){
-					padding: 5px 35px;
-				}
-			}
-			a:not(.button):hover,a.active{
-				color:#F8F8F8;
-				background-color: #69bed7;
+			a:hover{
+				color:$hover-color;
 			}
 			.avatar
 			{
@@ -215,9 +165,9 @@ span.shadow{
 				}
 				li.normal:hover{
 						background-color: #69bed7;
-						color: #F8F8F8;
+						color: white;
 						a{
-							color:#F8F8F8;
+							color:white;
 						}
 				}
 				li.split{
@@ -253,7 +203,7 @@ span.shadow{
 				span.arrow{
 					display: block;
 					position: absolute;
-					right: 65px;
+					right: 0;
 					top:-24px;
 					width:25px;
 					height: 25px;
@@ -268,7 +218,6 @@ span.shadow{
 }
 section.main{
 	color:#584f4f;
-	background-color: #F8F8F8;
 	.row{
 		max-width: 100%;
 		padding:0 10px;
@@ -276,11 +225,10 @@ section.main{
 	.editor{
 		resize:none;
 		line-height: 155%;
-
 	}
 	.preview{
-		background-color: white;
-		//padding: 8px 15px;
+		background-color: #FCF6EF;
+		padding: 8px 15px;
 		overflow-y:scroll;
 		color: rgb(68, 68, 68);
 		font-family: Arvo, 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -293,10 +241,3 @@ section.main{
 		}
 	}
 }
-.helper{
-		position: absolute;
-		height: 0;
-		top: -100px;
-}
-
-

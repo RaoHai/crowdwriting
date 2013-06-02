@@ -25,7 +25,7 @@ $em-base: 16px !default;
 
 // $default-float: left;
 
-$body-bg: #58BBC0;
+$body-bg: #f5f3ee;
 // $body-font-color: #222;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 $body-font-weight: 600;
@@ -45,7 +45,7 @@ $body-font-weight: 600;
 // $secondary-color: #e9e9e9;
 // $alert-color: #c60f13;
 // $success-color: #5da423;
-$hover-color :#5ebbc2;
+$hover-color :#e67e22;
 
 // Make sure border radius matches unless we want it different.
 
@@ -261,7 +261,7 @@ $hover-color :#5ebbc2;
 // $input-border-width: 1px;
 // $input-disabled-bg: #ddd;
 // $input-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-$input-focus-box-shadow:none;
+
 // Fieldset border and spacing.
 
 // $fieldset-border-style: solid;
@@ -1158,12 +1158,12 @@ $input-focus-box-shadow:none;
 
 // Background color for the top bar
 
-$topbar-bg: #F8F8F8;
+$topbar-bg: #3e4149;
 
 // Height and margin
 
-//$topbar-height: 75px;
-$topbar-margin-bottom: emCalc(0px);
+// $topbar-height: 45px;
+// $topbar-margin-bottom: emCalc(30px);
 
 // Input height for top bar
 
@@ -1175,11 +1175,11 @@ $topbar-margin-bottom: emCalc(0px);
 // $topbar-title-font-size: emCalc(17px);
 
 // Link colors and styles for top-level nav
-$topbar-link-color: #2B2B2B;
+$topbar-link-color: #b4b9c1;
 $topbar-link-weight: normal;
 // $topbar-link-font-size: emCalc(13px);
-$topbar-link-hover:#5ebbc2;
-//$topbar-link-hover:blue;
+$topbar-link-hover-lightness: 0% !default; // Darken by 30%
+
 // Top bar dropdown elements
 
 // $topbar-dropdown-bg: #333;
@@ -1193,13 +1193,13 @@ $topbar-link-hover:#5ebbc2;
 // $topbar-menu-link-transform: uppercase;
 // $topbar-menu-link-font-size: emCalc(13px);
 // $topbar-menu-link-weight: bold;
-$topbar-menu-link-color: black;
-$topbar-menu-icon-color: black;
+// $topbar-menu-link-color: #fff;
+// $topbar-menu-icon-color: #fff;
 // $topbar-menu-link-color-toggled: #080;
 // $topbar-menu-icon-color-toggled: #888;
 
 // Transitions and breakpoint styles
 
 // $topbar-transition-speed: 300ms;
-$topbar-breakpoint: emCalc(860px); // Change to 9999px for always mobile layout
+// $topbar-breakpoint: emCalc(940px); // Change to 9999px for always mobile layout
 // $topbar-media-query: "only screen and (min-width: "#{$topbar-breakpoint}")";

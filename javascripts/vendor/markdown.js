@@ -98,6 +98,7 @@ expose.toHTML = function toHTML( source , dialect , options ) {
 expose.toHTMLTree = function toHTMLTree( input, dialect , options ) {
   // convert string input to an MD tree
   if ( typeof input ==="string" ) input = this.parse( input, dialect );
+  console.log(input);
 
   // Now convert the MD tree to an HTML tree
 
@@ -255,6 +256,7 @@ Markdown.prototype.toTree = function toTree( source, custom_root ) {
       var b = this.processBlock( block, blocks );
       // Reference blocks and the like won't return any content
       if ( !b.length ) continue blocks;
+      console.log(b);
       this.tree.push.apply( this.tree, b );
     }
     return this.tree;
