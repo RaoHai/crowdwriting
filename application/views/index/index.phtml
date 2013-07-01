@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <title>Crowd Writing--<?php echo $this->values["domain"]; ?></title>
+  <title>Crowd Writing--{$domain}</title>
   <link href="stylesheets/app.css" rel="stylesheet" type="text/css"> 
   <link href="stylesheets/font-awesome.css" rel="stylesheet" type="text/css"> 
   <script src="javascripts/vendor/custom.modernizr.js"></script>
@@ -22,7 +22,7 @@
   </style>
 </head>
 <body>
-  <?php echo  "<!-- Part Template: nav -->\n";?><nav class="top-bar">
+  <nav class="top-bar">
   <ul class="title-area">
     <!-- Title Area -->
     <li class="name">
@@ -78,7 +78,7 @@
       </li>
     </ul>
   </section>
-</nav><?php echo "<!-- Template End  -->\n"; ; ?>
+</nav>
   <div id="wmd-button-bar" style='display:none'></div>
   <section class="main">
     <div class="row editor">
@@ -97,21 +97,6 @@
     </div>
   </section> 
   <textarea id="md-section-helper" class='editor helper'></textarea>
-   <?php echo  "<!-- Part Template: script -->\n";?><script src="javascripts/vendor/jquery.js"> </script>
-<script src="javascripts/foundation/foundation.js"></script>
-<script src="javascripts/foundation/foundation.alerts.js"></script>
-<script src="javascripts/foundation/foundation.clearing.js"></script>
-<script src="javascripts/foundation/foundation.cookie.js"></script>
-<script src="javascripts/foundation/foundation.dropdown.js"></script>
-<script src="javascripts/foundation/foundation.forms.js"></script>
-<script src="javascripts/foundation/foundation.joyride.js"></script>
-<script src="javascripts/foundation/foundation.magellan.js"></script>
-<script src="javascripts/foundation/foundation.orbit.js"></script>
-<script src="javascripts/foundation/foundation.placeholder.js"></script>
-<script src="javascripts/foundation/foundation.reveal.js"></script>
-<script src="javascripts/foundation/foundation.section.js"></script>
-<script src="javascripts/foundation/foundation.tooltips.js"></script>
-<script src="javascripts/foundation/foundation.topbar.js"></script>
-<script src="javascripts/app.js"></script><?php echo "<!-- Template End  -->\n"; ; ?>
+  {$scripts}
 </body>
 </html>
