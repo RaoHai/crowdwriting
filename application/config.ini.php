@@ -17,7 +17,7 @@
 	//数据库密码
 	defined('DB_USER_PASSWORD')  	|| define('DB_USER_PASSWORD', "crowd");
 	//数据库名
-	defined('DB_NAME')  || define('DB_NAME', "crowdwriting");
+	defined('DB_NAME')  || define('DB_NAME', "crowd");
 	//定义是否使用短URL...
 	//短url： http://www.yourwebsite.com/say/hello
 	//长url:  http://www.yourwebsite.com/?m=say&a=hello
@@ -31,7 +31,8 @@
     //定义数据库结构映射
 	static $_Struct=
 	array(
-		"article"=>array("ArticleTitle","ArticleAuthor","CreateTime","EditTime"),
+		"Chapter"=>array("ChapterTitle","ChapterContent","CreateTime","Uuid","UserId"),
+		"User"=>array("UserName","Email","Password","Salt","CreateTime","Permission"),
 	);
 
 	 

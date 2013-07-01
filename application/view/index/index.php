@@ -83,7 +83,7 @@
   <section class="main">
     <div class="row editor">
       <div class="columns large-6">
-        <input type="text" value='Untitled Document'>
+        <input type="text" value='Untitled Document' id='ChapterTitle'>
         <textarea class='editor' id='wmd-input'>
         </textarea>
       </div>

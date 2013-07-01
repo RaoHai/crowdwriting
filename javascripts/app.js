@@ -1,34 +1,19 @@
 /*global $, document, window, markdown*/
-
 $(function () {
-	var fnMain, Storage;
-	Storage = function () {
-		var storages, storageCategory;
-		if (window.localStorage) {
-			storages = window.localStorage;
-			storageCategory = "localStorage";
-		} else {
-			sotrage = document.cookie;
-		}
-
-
-		$.extend(this,{
-			save : function (key, value) {
-
-			},
-			load : function (key) {
-
-			}
-		});
-	};
+	var fnMain, docId;
 	fnMain = function () {
-		var resizeEditor, timer, editor, previewer, mainEditor;
+		docId = 0;
+		var fnResizeEditor, timer, editor, previewer, mainEditor;
 		fnResizeEditor = function () {
 			var height, editorHeight;
 			height = $(window).height();
 			editorHeight = height - 160;
-			$('#wmd-input').css({'height' : editorHeight});
-			$('#wmd-preview').css({'height' : editorHeight + 46});
+			$('#wmd-input').css({
+				'height': editorHeight
+			});
+			$('#wmd-preview').css({
+				'height': editorHeight + 46
+			});
 		};
 
 		$(window).resize(function () {
@@ -53,6 +38,23 @@ $(function () {
 		});
 
 	};
+	$('#action-save').click(function () {
+		$.ajax({
+			type: "post",
+			url: 'Chapter',
+			data: {
+				'id' : docId,
+				'ChapterTitle' : $('#ChapterTitle').val(),
+				'ChapterContent': $('#wmd-input').val()
+			},
+			success: function (value) {
+				if (value.Status === 'OK') {
+					docId = value.Id;
+					window.setId(docId);
+				};
+			}
+		});
+	});
 	fnMain();
 
 

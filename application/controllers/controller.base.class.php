@@ -39,26 +39,45 @@ class ControllerBase implements Iterator
     }
     /*Impl iterator*/
     public function rewind() { reset($this->items); }
-        public function current() { return current($this->items); }
-        public function key() { return key($this->items); }
-        public function next() { return next($this->items); }
-        public function valid() { return ( $this->current() !== false ); }
+    public function current() { return current($this->items); }
+    public function key() { return key($this->items); }
+    public function next() { return next($this->items); }
+    public function valid() { return ( $this->current() !== false ); }
 
-        /*Impl End*/
-        public function save()
-        {
-            global $_Struct;
-            $savedata;
-            foreach ($_Struct[$this->instance] as $data)
-            {
-                if(strpos($data,"time"))  $savedata[]=isset($this->$data)?$this->$data:0;
-                else $savedata[]=isset($this->$data)?rawurlencode($this->$data):0;
-            }
-
-            $this->model->New($savedata);
-            $this->model->getresult();
-            //var_dump($_Struct[$this->instance]);
+    /*Impl End*/
+    public function _post()
+    {
+      global $_Struct;
+      $id = $this->instance.'Id';
+      
+      foreach ($_Struct[$this->instance] as $data)
+      {
+        $this->$data = $_REQUEST[$data];
+        $this->json->$data = $_REQUEST[$data];
+      }
+      if (!empty($_REQUEST['id'])) {
+        $this->$id = $_REQUEST['id'];    
+        $this->json->$id = $_REQUEST['id'];        
+      }
+    }
+    public function save()
+    {
+        if (!empty($_REQUEST['id'])) {
+          $this->update();
+          return;
         }
+        global $_Struct;
+        $savedata;
+        foreach ($_Struct[$this->instance] as $data)
+        {
+          if(strpos($data,"time") || strpos($data, "Time"))  $savedata[]=isset($this->$data)?$this->$data:0;
+          else $savedata[]=isset($this->$data)?rawurlencode($this->$data):0;
+        }
+
+        $this->model->New($savedata);
+        $this->model->getresult();
+        //var_dump($_Struct[$this->instance]);
+    }
 
     public function update()
     {
@@ -66,7 +85,7 @@ class ControllerBase implements Iterator
         $savedata;
         foreach ($_Struct[$this->instance] as $data)
         {
-            $savedata[$data] = isset($this->$data)?$this->$data:0;
+            $savedata[$data] = isset($this->$data) ? $this->$data : 0;
         }
         $id = ucfirst($this->instance)."Id";
         $setid = array($id."=".$this->$id);

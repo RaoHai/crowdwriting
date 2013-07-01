@@ -154,7 +154,7 @@ define([
 	var lastSync = 0;
 	synchronizer.sync = function() {
 		// If sync is already running or timeout is not reached or offline
-		if (syncRunning || lastSync + SYNC_PERIOD > utils.currentTime || core.isOffline) {
+		if (syncRunning || core.isOffline) {
 			return;
 		}
 		syncRunning = true;

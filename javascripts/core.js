@@ -30,10 +30,7 @@ define([
 		userLastActivity = utils.currentTime;
 	};
 	function isUserActive() {
-		if(userActive === true 
-			&& utils.currentTime - userLastActivity > USER_IDLE_THRESHOLD) {
-			userActive = false;
-		}
+
 		return userActive && windowUnique;
 	}
 	
@@ -91,7 +88,14 @@ define([
 			});
 		}
 	}
-	
+	function checkLogin() {
+		$.ajax({ 
+			url : "session",
+			timeout : 1000, dataType : "json"
+		}).done(function(value) {
+			window.user = value;
+		});	
+	}	
 	// Load settings in settings dialog
 	function loadSettings() {
 		
@@ -263,9 +267,6 @@ define([
 	core.onReady(function() {
 				
 		// Load theme list
-		_.each(THEME_LIST, function(name, value) {
-			$("#input-settings-theme").append($('<option value="' + value + '">' + name + '</option>'));
-		});
 		
 		// listen to online/offline events
 		$(window).on('offline', core.setOffline);
@@ -274,6 +275,7 @@ define([
 			core.setOffline();
 		}
 		
+		checkLogin();
 		// Detect user activity
 		$(document).mousemove(setUserActive).keypress(setUserActive);
 		
@@ -348,51 +350,7 @@ define([
 		    }
 		});
 
-		// Tooltips
-		$(".tooltip-scroll-link").tooltip({
-			html: true,
-			container: '#modal-settings',
-			placement: 'right',
-			title: ['Scroll Link is a feature that binds together editor and preview scrollbars. ',
-			        'It allows you to keep an eye on the preview while scrolling the editor and vice versa. ',
-			        '<br><br>',
-			        'The mapping between Markdown and HTML is based on the position of the title elements (h1, h2, ...) in the page. ',
-			        'Therefore, if your document does not contain any title, the mapping will be linear and consequently less efficient.',
-			        ].join("")
-		});
-		$(".tooltip-lazy-rendering").tooltip({
-			container: '#modal-settings',
-			placement: 'right',
-			title: 'Disable preview rendering while typing in order to offload CPU. Refresh preview after 500 ms of inactivity.'
-		});
-		$(".tooltip-default-content").tooltip({
-			html: true,
-			container: '#modal-settings',
-			placement: 'right',
-			title: 'Thanks for supporting StackEdit by adding a backlink in your documents!'
-		});
-		$(".tooltip-template").tooltip({
-			html: true,
-			container: '#modal-settings',
-			placement: 'right',
-			trigger: 'manual',
-			title: ['Available variables:<br>',
-			        '<ul><li><b>documentTitle</b>: document title</li>',
-			        '<li><b>documentMarkdown</b>: document in Markdown format</li>',
-			        '<li><b>documentHTML</b>: document in HTML format</li>',
-			        '<li><b>publishAttributes</b>: attributes of the publish location (undefined when using "Save")</li></ul>',
-			        'Examples:<br>',
-			        _.escape('<title><%= documentTitle %></title>'),
-			        '<br>',
-			        _.escape('<div><%- documentHTML %></div>'),
-			        '<br>',
-			        _.escape('<% if(publishAttributes.provider == "github") print(documentMarkdown); %>'),
-			        '<br><br><a target="_blank" href="http://underscorejs.org/#template">More info</a>',
-			        ].join("")
-		}).click(function(e) {
-			$(this).tooltip('show');
-			e.stopPropagation();
-		});
+		
 		
 		$(document).click(function(e) {
 			$(".tooltip-template").tooltip('hide');

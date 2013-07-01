@@ -17,7 +17,6 @@ define([
 			'</head>\n',
 			'<body><%= documentHTML %></body>\n',
 			'</html>'].join(""),
-		sshProxy : SSH_PROXY_URL,
 		extensionSettings: {}
 	};
 	

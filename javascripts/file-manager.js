@@ -25,6 +25,11 @@ define([
 		localStorage[this.fileIndex + ".content"] = content;
 		extensionMgr.onContentChanged(this);
 	};
+	FileDescriptor.prototype.setId = function(Id) {
+		this.id = Id;
+		localStorage[this.fileIndex + ".Id"] = Id;
+		extensionMgr.onIdChanged(this);
+	}
 	FileDescriptor.prototype.setTitle = function(title) {
 		this.title = title;
 		localStorage[this.fileIndex + ".title"] = title;
@@ -51,9 +56,7 @@ define([
 		if(fileDesc === undefined) {
 			localStorage.removeItem("file.current");
 		}
-		else if(fileDesc.fileIndex != TEMPORARY_FILE_INDEX) {
-			localStorage["file.current"] = fileDesc.fileIndex;
-		}
+
 	};
 	
 	// Caution: this function recreates the editor (reset undo operations)
@@ -64,6 +67,7 @@ define([
 			var fileSystemSize = _.size(fileSystem);
 			// If fileSystem empty create one file
 			if (fileSystemSize === 0) {
+
 				fileDesc = fileMgr.createFile(WELCOME_DOCUMENT_TITLE, welcomeContent);
 			}			
 			else {
@@ -73,6 +77,8 @@ define([
 					fileIndex = _.keys(fileSystem)[fileSystemSize - 1];
 				}
 				fileDesc = fileSystem[fileIndex];
+				fileDesc.Id = localStorage[fileIndex + ".Id"];
+
 			}
 		}
 		
@@ -81,18 +87,20 @@ define([
 			
 			// Notify extensions
 			extensionMgr.onFileSelected(fileDesc);			
+			$(".action-edit-document").addClass("hide");
 
-			// Hide the viewer pencil button
-			if(fileDesc.fileIndex == TEMPORARY_FILE_INDEX) {
-				$(".action-edit-document").removeClass("hide");
-			}
-			else {
-				$(".action-edit-document").addClass("hide");
-			}
 		}
 		
 		// Recreate the editor
+		$.ajax({ 
+			url : "Chapter/" + fileDesc.Id,
+			timeout : 2000,dataType : "json"
+		}).done(function(doc) {
+			var content = doc[0].ChapterContent;
+			$("#wmd-input").val(content);
+		});
 		$("#wmd-input").val(fileDesc.getContent());
+		$('#ChapterTitle').val(fileDesc.title);
 		core.createEditor(function() {
 			// Callback to save content when textarea changes
 			fileMgr.saveFile();
@@ -301,8 +309,6 @@ define([
 			});
 		});
 		function applyTitle(input) {
-			input.hide();
-			$("#file-title").show();
 			var title = $.trim(input.val());
 			var fileDesc = fileMgr.getCurrentFile();
 			if (title && title != fileDesc.title) {
@@ -311,6 +317,13 @@ define([
 			input.val(fileDesc.title);
 			$("#wmd-input").focus();
 		}
+		$('#ChapterTitle').change(function () {
+			applyTitle($(this));
+		});
+		window.setId = function (Id) {
+			var fileDesc = fileMgr.getCurrentFile();
+			fileDesc.setId(Id);
+		};
 		$("#file-title-input").blur(function() {
 			applyTitle($(this));
 		}).keyup(function(e) {

@@ -73,7 +73,6 @@ define([
 		
 		// Try to find corresponding sections in the preview
 		var previewElt = $("#wmd-preview");
-		console.log(previewElt);
 		htmlSectionList = [];
 		var htmlSectionOffset = 0;
 		var previewScrollTop = previewElt.scrollTop();
@@ -100,7 +99,6 @@ define([
 		lastEditorScrollTop = -9;
 		skipScrollLink = false;
 		isScrollPreview = false;
-		console.log(mdSectionList,htmlSectionList);
 		runScrollLink();
 	}, 500);
 	

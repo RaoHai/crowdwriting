@@ -30,7 +30,6 @@ class Route
         $uri == NULL && $uri = $_SERVER['REDIRECT_URL'];
         $uri = isset($uri) ? $uri : $_REQUEST['url'];
         $this->_uri   = $uri;
-
         $this->init();
 
 
@@ -41,27 +40,21 @@ class Route
         global $routeArr;
         $uri == NULL && $uri = $this->_uri;
 
-
         foreach($routeArr as $regex=>$mvc)
         {
 
             if(preg_match($regex,$uri,$matches))
             {
-
                 $uri =  preg_replace($regex,$mvc,$uri);
-                //echo $uri."</br>";
-
-
-                //var_dump($matches);
-
-                $this->uriArr = array($mvc["controller"],$mvc["action"],$mvc["param"]);
+                $this->uriArr = explode("/",$uri);
+                //$this->uriArr = array($mvc["controller"],$mvc["action"],$mvc["param"]);
+                return;
             }
 
         }
         //die();
-        $this->uriArr = explode('/',substr($uri,1));
-        $this->uriArr && $this->uriArr = array_filter($this->uriArr);
-        //var_dump($this->uriArr);
+        $this->uriArr = explode('/',$uri);
+        //$this->uriArr && $this->uriArr = array_filter($this->uriArr);
         //echo "==>".$this->uriArr[1];
     }
 
@@ -76,23 +69,36 @@ class Route
     }
     private function parseRoute()
     {
+    //var_dump($this->uriArr);
       if(SHORT_URI){
-        $this->_module= (isset( $this->uriArr[0]) ? $this->uriArr[0] : 'index');
-        $this->_controller=(isset( $this->uriArr[0]) ? $this->uriArr[0] : 'index');
-        $this->_action =(isset( $this->uriArr[1]) ? $this->uriArr[1] : 'index');
-        $this-> _param= (isset( $this->uriArr[2]) ? $this->uriArr[2] : '');
+        $this->_module= (!empty( $this->uriArr[0]) ? $this->uriArr[0] : 'index');
+        $this->_controller=(!empty( $this->uriArr[0]) ? $this->uriArr[0] : 'index');
+        $this->_action =(!empty( $this->uriArr[1]) ? $this->uriArr[1] : 'index');
+        $this-> _param= (!empty( $this->uriArr[2]) ? $this->uriArr[2] : '');
     }else{
-        $this->_module = (isset($_GET['m'])?$_GET['m']:'index');
-        $this->_controller=(isset($_GET['m'])?$_GET['m']:'index');
-        $this->_action = (isset($_GET['a'])?$_GET['a']:'index');
-        $this->_param  = (isset($_GET['p'])?$_GET['p']:'');
+        $this->_module = (!empty($_GET['m'])?$_GET['m']:'index');
+        $this->_controller=(!empty($_GET['m'])?$_GET['m']:'index');
+        $this->_action = (!empty($_GET['a'])?$_GET['a']:'index');
+        $this->_param  = (!empty($_GET['p'])?$_GET['p']:'');
     }
+
+        if ($this->_action == 'index') {
+            switch ($_SERVER['REQUEST_METHOD']) {
+                case 'POST':
+                    $this->_action = 'post';
+                    break;
+                case 'DELETE':
+                    $this->_action = 'del';
+                    break;
+                default:
+                    break;
+            }
+        }
         register_global_var("_MODULE",$this->_module);
         register_global_var("_CONTROLLER",$this->_controller);
         register_global_var("_ACTION",$this->_action);
         register_global_var("_PARAM",$this->_param);
-        //echo $this->_module."|".$this->_controller."|".$this->_action.":".$this-> _param;
-
+        //echo "controller:".$this->_controller." action:".$this->_action." param:".$this->_param;
     }
 
     private function dispatcher()
@@ -116,14 +122,7 @@ class Route
         $acl = Acl::getInstance();
         $acl->addRole("guest");
         $acl->allow("guest","index");
-        $acl->allow("guest","article");
-        $acl->allow("guest","columns");
-        $acl->allow("guest","childcolumns");
-        $acl->allow("guest","contents");
-        $acl->allow("guest","paper");	
-		$acl->allow("guest","catalog");	
-		$acl->allow("guest","product");	
-        $acl->allow("guest","paperfile");
+        $acl->allow("guest","Chapter");
         $acl->allow("guest","register");
         $acl->addRole("admin","guest");
         $acl->allow("admin","user");

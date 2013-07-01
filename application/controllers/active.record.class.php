@@ -9,13 +9,11 @@
  * @author surgesoft
  * @version $Id: model.base.class.php 2012-01-06 16:06
  * @package model.base.class.php
-
  * 关于数据库封装的效率
  * 在渣电脑上不使用缓存直接查询，
  * 测试10,000条1对多的多表连接数据查询的耗时在8.2606220245361～8.4245231151581秒之间
  * 基本上是按照ACT AS TREE的算法来做
  * 期待更好的优化
-
  */
 require_once( APPLICATION_PATH."/db.conn.php");
 class ActiveRecord
