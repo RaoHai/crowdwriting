@@ -1,0 +1,18 @@
+API规范
+
+Restful形式的uri
+uri可以访问到的所有东西都是资源
+使用GET/POST/PUT/DELETE来获取
+
+比如对于 ‘用户’ user
+GET /users ，表示获取所有user,对应到/controllers/Users.php 的IndexAction中
+GET /users/1，表示获取Id为1的用户的信息,也是对应到/controller/Users.php 的ShowAction中
+将表单 PUT 到/users ，表示将表单内容更新到users中,对应到/controller/User.php 的UpdateAction中
+将表单 POST到/users ，表示将表单内容添加到users中,对应到/controller/User.php 的CreateAction中
+DELETE /users/1 表示将Id为1的用户删除，对应到/controller/
+如果浏览器不支持PUT/DELETE,在表单或者ajax中提交一个_method的请求，设为请求类型
+
+
+
+
+
