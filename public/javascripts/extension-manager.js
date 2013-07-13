@@ -100,6 +100,7 @@ define( [
 	addHook("onFileSelected");
 	addHook("onContentChanged");
 	addHook("onTitleChanged");
+	addHook("onTimeChanged");
 	addHook("onIdChanged");
 	// Sync events
 	addHook("onSyncRunning");

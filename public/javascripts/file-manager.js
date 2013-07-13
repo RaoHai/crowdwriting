@@ -25,6 +25,12 @@ define([
 		localStorage[this.fileIndex + ".content"] = content;
 		extensionMgr.onContentChanged(this);
 	};
+	FileDescriptor.prototype.setUpdateTime = function (time) {
+		this.updateTime = time;
+		localStorage[this.fileIndex + ".updateTime"] = time;
+		console.log(this.fileIndex + ".updateTime", time);
+		extensionMgr.onTimeChanged(this);
+	};
 	FileDescriptor.prototype.setId = function(Id) {
 		this.id = Id;
 		localStorage[this.fileIndex + ".Id"] = Id;
@@ -78,7 +84,7 @@ define([
 				}
 				fileDesc = fileSystem[fileIndex];
 				fileDesc.Id = localStorage[fileIndex + ".Id"];
-
+				fileDesc.updateTime = localStorage[fileIndex + ".updateTime"];
 			}
 		}
 		
@@ -94,10 +100,19 @@ define([
 		// Recreate the editor
 		$.ajax({ 
 			url : "Chapter/" + fileDesc.Id,
-			timeout : 2000,dataType : "json"
+			timeout : 2000
 		}).done(function(doc) {
-			var content = doc[0].ChapterContent;
-			$("#wmd-input").val(content);
+			var localtime = fileDesc.updateTime;
+			var origintime = doc[0].UpdateTime;
+			if (datecompare(localtime, origintime) > 0 && confirm('Origin document is newer, replace local file to origin file ?')){//origin time is new
+				var content = doc[0].ChapterContent;
+				$("#wmd-input").val(decodeURIComponent(content));
+				$("#wmd-input").trigger('change');
+				fileDesc.setUpdateTime(origintime);
+				fileMgr.saveFile();
+			}
+			$("#wmd-input").attr('data-id', fileDesc.Id);
+			
 		});
 		$("#wmd-input").val(fileDesc.getContent());
 		$('#ChapterTitle').val(fileDesc.title);
@@ -188,6 +203,9 @@ define([
 	fileMgr.saveFile = function() {
 		var content = $("#wmd-input").val();
 		var fileDesc = fileMgr.getCurrentFile();
+		var time = new Date();
+		console.log(time.Format('yyyy-MM-dd hh:mm:ss'));
+		//fileDesc.setUpdateTime(time.toString('Y-m-d H:i:s'));
 		fileDesc.setContent(content);
 	};
 
@@ -257,7 +275,10 @@ define([
 			extensionMgr.onPublishRemoved(fileDesc, publishAttributes);
 		}
 	};
-	
+	fileMgr.setId = function (id) {
+		var fileDesc = fileMgr.getCurrentFile();
+		fileDesc.setId(Id);
+	};
 	// Get the file descriptor associated to a publishIndex
 	fileMgr.getFileFromPublishIndex = function(publishIndex) {
 		return _.find(fileSystem, function(fileDesc) {
@@ -320,10 +341,6 @@ define([
 		$('#ChapterTitle').change(function () {
 			applyTitle($(this));
 		});
-		window.setId = function (Id) {
-			var fileDesc = fileMgr.getCurrentFile();
-			fileDesc.setId(Id);
-		};
 		$("#file-title-input").blur(function() {
 			applyTitle($(this));
 		}).keyup(function(e) {
@@ -362,6 +379,8 @@ define([
 		});
 	});
 
+	window.fileMgr = fileMgr;
 	extensionMgr.onFileMgrCreated(fileMgr);
+
 	return fileMgr;
 });

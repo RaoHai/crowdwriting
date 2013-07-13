@@ -1,6 +1,7 @@
 /*global $, document, window, markdown*/
 $(function () {
-	var fnMain, docId;
+	var fnMain, docId, fileMgr;
+	fileMgr = window.fileMgr;
 	fnMain = function () {
 		docId = 0;
 		var fnResizeEditor, timer, editor, previewer, mainEditor;
@@ -39,18 +40,26 @@ $(function () {
 
 	};
 	$('#action-save').click(function () {
+		var $Id;
+		if ($('#wmd-input').attr('data-id')) {
+			$Id = $('#wmd-input').attr('data-id');
+		} else {
+			$Id = 0;
+		}
 		$.ajax({
-			type: "post",
+			type: "put",
 			url: 'Chapter',
 			data: {
-				'id' : docId,
+				'id' : $Id,
 				'ChapterTitle' : $('#ChapterTitle').val(),
-				'ChapterContent': $('#wmd-input').val()
+				'ChapterContent': $('#wmd-input').val(),
 			},
 			success: function (value) {
 				if (value.Status === 'OK') {
 					docId = value.Id;
-					window.setId(docId);
+					fileMgr.setUpdateTime(value.UpdateTime);
+					fileMgr.setId(docId);
+					$('#wmd-input').attr('data-id', docId);
 				};
 			}
 		});

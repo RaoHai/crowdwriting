@@ -1,20 +1,25 @@
 <?php 
-//include_once APP_PATH.'/application/library/ezSQL/ez_sql_core.php';
-//include_once APP_PATH.'/application/library/ezSQL/ez_sql_mysql.php';
+
 class Bootstrap extends Yaf_Bootstrap_Abstract{
 
     public function _initConfig() {
         $config = Yaf_Application::app()->getConfig();
-        Yaf_Registry::set("config", $config);
-        $options = array(
+        Yaf_Registry::set("config", $config); 
+        $request = Yaf_Dispatcher::getInstance()->getRequest();
+        if (!$request->isXmlHttpRequest()) {
+          $options = array(
           'snippet_num_lines' => 10,
           'background_text'  => 'Error!',
           'error_reporting_off' => E_WARNING | E_PARSE,
           'error_reporting_on' => 0
           );
 
-        require( APP_PATH.'/application/library/PhpError/php_error.php' );
-        \php_error\reportErrors($options);
+          require( APP_PATH.'/application/library/PhpError/php_error.php' );
+          \php_error\reportErrors($options);
+        } else {
+          header('Content-type: text/json');
+          ini_set('display_errors', 'off');
+        }
 
     }
 
