@@ -20,12 +20,14 @@ class Active_Record_Abstract{
 		return $this->type;
 	}
 
-	public function getFromRequest($_PUT)
+	public function getFromRequest($PUT)
 	{
-		$this->id = $_PUT['id'];
+		$this->id = $PUT['id'];
 		foreach ($this->type as $key => $value) {
-			if ($v = $_PUT[$key]) {
+			if ($v = $PUT[$key]) {
 				$this->$key = $v;
+			} elseif($value == 'datetime') {
+				$this->$key = date('Y-m-d H:i:s');
 			}
 		}
 	}
@@ -84,6 +86,7 @@ class Active_Record_Abstract{
 					array_push($insertValues, $val);
 				}
 			}
+
 			$insert = join(',',$insertColumns);
 			$vals = join('\',\'',$insertValues);
 			$sql = $savecolumns.$insert.") VALUES('".$vals."');";

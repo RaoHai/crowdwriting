@@ -1,7 +1,7 @@
 /*global $, document, window, markdown*/
 $(function () {
-	var fnMain, docId, fileMgr;
-	fileMgr = window.fileMgr;
+	var fnMain, docId;
+	//fileMgr = window.fileMgr;
 	fnMain = function () {
 		docId = 0;
 		var fnResizeEditor, timer, editor, previewer, mainEditor;
@@ -40,14 +40,16 @@ $(function () {
 
 	};
 	$('#action-save').click(function () {
-		var $Id;
+		var $Id, $type;
 		if ($('#wmd-input').attr('data-id')) {
 			$Id = $('#wmd-input').attr('data-id');
+			$type = "put";
 		} else {
 			$Id = 0;
+			$type = "post";
 		}
 		$.ajax({
-			type: "put",
+			type: $type,
 			url: 'Chapter',
 			data: {
 				'id' : $Id,
@@ -55,12 +57,13 @@ $(function () {
 				'ChapterContent': $('#wmd-input').val(),
 			},
 			success: function (value) {
-				if (value.Status === 'OK') {
+				console.log(value);
+				//if (value.Status === 'OK') {
 					docId = value.Id;
 					fileMgr.setUpdateTime(value.UpdateTime);
 					fileMgr.setId(docId);
 					$('#wmd-input').attr('data-id', docId);
-				};
+				//};
 			}
 		});
 	});

@@ -25,7 +25,10 @@ class ChapterController extends Yaf_Controller_Abstract {
 	}
 	public function createAction()
 	{
-		
+		$Chapter = Active_Record::getObject("Chapter");
+		$Chapter->getFromRequest($_POST);
+		$Chapter->save();
+		$this->getResponse()->setBody(json_encode($Chapter));
 	}
 	public function updateAction()
 	{

@@ -8,7 +8,9 @@ define([
     "file-system",
     "lib/text!../WELCOME.md"
 ], function($, _, core, utils, settings, extensionMgr, fileSystem, welcomeContent) {
-	
+	var DEFAULT_FILE_TITLE = "WELCOME";	
+	var WELCOME_DOCUMENT_TITLE = "WELCOME";
+	var TEMPORARY_FILE_INDEX = 1;
 	var fileMgr = {};
 	
 	// Defines a file descriptor in the file system (fileDesc objects)
@@ -64,6 +66,10 @@ define([
 		}
 
 	};
+	fileMgr.setUpdateTime = function (time) {
+		var fileDesc = fileMgr.getCurrentFile();
+		fileDesc.setUpdateTime(time);
+	}
 	
 	// Caution: this function recreates the editor (reset undo operations)
 	fileMgr.selectFile = function(fileDesc) {
@@ -98,12 +104,13 @@ define([
 		}
 		
 		// Recreate the editor
-		$.ajax({ 
-			url : "Chapter/" + fileDesc.Id,
-			timeout : 2000
-		}).done(function(doc) {
-			var localtime = fileDesc.updateTime;
-			var origintime = doc[0].UpdateTime;
+		if (fileDesc.Id) {
+			$.ajax({ 
+				url : "Chapter/" + fileDesc.Id,
+				timeout : 2000
+			}).done(function(doc) {
+				var localtime = fileDesc.updateTime;
+				var origintime = doc[0].UpdateTime;
 			if (datecompare(localtime, origintime) > 0 && confirm('Origin document is newer, replace local file to origin file ?')){//origin time is new
 				var content = doc[0].ChapterContent;
 				$("#wmd-input").val(decodeURIComponent(content));
@@ -114,6 +121,7 @@ define([
 			$("#wmd-input").attr('data-id', fileDesc.Id);
 			
 		});
+		}
 		$("#wmd-input").val(fileDesc.getContent());
 		$('#ChapterTitle').val(fileDesc.title);
 		core.createEditor(function() {
@@ -277,7 +285,7 @@ define([
 	};
 	fileMgr.setId = function (id) {
 		var fileDesc = fileMgr.getCurrentFile();
-		fileDesc.setId(Id);
+		fileDesc.setId(id);
 	};
 	// Get the file descriptor associated to a publishIndex
 	fileMgr.getFileFromPublishIndex = function(publishIndex) {
