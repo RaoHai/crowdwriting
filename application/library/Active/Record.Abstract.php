@@ -91,13 +91,13 @@ class Active_Record_Abstract{
 			$vals = join('\',\'',$insertValues);
 			$sql = $savecolumns.$insert.") VALUES('".$vals."');";
 			$this->db->query($sql);
-			$this->$primary = mysql_insert_id();
+			$this->Id = $this->$primary = mysql_insert_id();
 	}
 	public function update($conditions)
 	{
 		$instance = $this->instance;
 		$primary = $instance.'Id';
-		if (empty($this->id)) {
+		if (empty($this->Id)) {
 			return -1;
 		}
 		$savecolumns = "UPDATE $instance SET ";

@@ -34,6 +34,7 @@ define([
 		extensionMgr.onTimeChanged(this);
 	};
 	FileDescriptor.prototype.setId = function(Id) {
+		console.log(Id);
 		this.id = Id;
 		localStorage[this.fileIndex + ".Id"] = Id;
 		extensionMgr.onIdChanged(this);
@@ -284,6 +285,7 @@ define([
 		}
 	};
 	fileMgr.setId = function (id) {
+		console.log(id);
 		var fileDesc = fileMgr.getCurrentFile();
 		fileDesc.setId(id);
 	};

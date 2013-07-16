@@ -48,6 +48,7 @@ $(function () {
 			$Id = 0;
 			$type = "post";
 		}
+
 		$.ajax({
 			type: $type,
 			url: 'Chapter',
