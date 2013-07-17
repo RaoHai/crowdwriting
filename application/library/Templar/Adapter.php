@@ -55,9 +55,9 @@ $this->_templar->nav =
     </li>
     <li class='actions'>
       <ul class="actionbar">
+      	<li><a href="javascript:void(0)" class="new" id="action-new"><i class="icon-file-alt"></i></a></li>
         <li><a href="javascript:void(0)" class="save" id="action-save"><i class="icon-save"></i></a></li>
         <li><a href="javascript:void(0)" class="style" id="action-style"><i class="icon-columns"></i></a></li>
-        <li><a href="javascript:void(0)" class="fullscreen" id="action-fullscreen"><i class="icon-resize-full"></i></a></li>
       </ul>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>

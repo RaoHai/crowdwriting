@@ -97,8 +97,8 @@ class Active_Record_Abstract{
 	{
 		$instance = $this->instance;
 		$primary = $instance.'Id';
-		if (empty($this->Id)) {
-			return -1;
+		if (empty($this->id)) {
+			return "Error: Id is Empty!";
 		}
 		$savecolumns = "UPDATE $instance SET ";
 		$condition;
@@ -120,7 +120,7 @@ class Active_Record_Abstract{
 
 		$sql = $savecolumns.join(",", $updateColumns).$condition;
 		$this->db->query($sql);
-		
+		return "ok";
 	}
 
 }

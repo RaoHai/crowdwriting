@@ -1,6 +1,9 @@
 /*global $, document, window, markdown*/
 $(function () {
 	var fnMain, docId;
+
+	//localStorage.clear();
+
 	//fileMgr = window.fileMgr;
 	fnMain = function () {
 		docId = 0;
@@ -39,6 +42,9 @@ $(function () {
 		});
 
 	};
+	$('#action-style').click(function () {
+		$(document.body).toggleClass('fullwidth');
+	});
 	$('#action-save').click(function () {
 		var $Id, $type;
 		if ($('#wmd-input').attr('data-id')) {
