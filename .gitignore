@@ -11,6 +11,7 @@ phpmyadmin/
 *.tmp
 *.bak
 *.swp
+*.scss-cache/
 *~.nib
 local.properties
 .classpath
