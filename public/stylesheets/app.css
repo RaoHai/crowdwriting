@@ -6736,77 +6736,99 @@ span.shadow.shadow-right {
 @media screen and (min-width: 1024px) {
   /* line 91, ../sass/app.scss */
   body {
+    background-image: url(/img/bg.jpg);
     padding: 1.5em 1.5em 0 1.5em;
   }
-
   /* line 94, ../sass/app.scss */
+  body .notice {
+    position: absolute;
+    left: 1.5em;
+    bottom: 1.5;
+    width: 150px;
+  }
+  /* line 99, ../sass/app.scss */
+  body .notice ul {
+    list-style: none;
+  }
+  /* line 101, ../sass/app.scss */
+  body .notice ul li {
+    text-align: center;
+    padding: 0.2em 0;
+    color: white;
+  }
+  /* line 105, ../sass/app.scss */
+  body .notice ul li.normal {
+    background-color: #414f5a;
+  }
+
+  /* line 112, ../sass/app.scss */
   body.fullwidth {
     padding: 0;
   }
-  /* line 96, ../sass/app.scss */
+  /* line 114, ../sass/app.scss */
   body.fullwidth .top-bar {
     padding: 10px 0 0 0;
   }
-  /* line 100, ../sass/app.scss */
+  /* line 118, ../sass/app.scss */
   body.fullwidth section.main .row {
     padding: 0;
   }
-  /* line 102, ../sass/app.scss */
+  /* line 120, ../sass/app.scss */
   body.fullwidth section.main .row .columns {
     padding-left: 0.3em;
     padding-right: 0.3em;
   }
 }
 @media screen and (max-width: 1024px) {
-  /* line 111, ../sass/app.scss */
+  /* line 129, ../sass/app.scss */
   body {
     padding: 0;
   }
 }
 @media screen and (max-width: 800px) {
-  /* line 117, ../sass/app.scss */
+  /* line 136, ../sass/app.scss */
   ul.right {
     display: none;
   }
 }
-/* line 122, ../sass/app.scss */
+/* line 141, ../sass/app.scss */
 .top-bar {
   height: 75px;
   padding: 30px 0 0 0;
 }
-/* line 125, ../sass/app.scss */
+/* line 144, ../sass/app.scss */
 .top-bar.expanded {
   padding: 0;
 }
-/* line 127, ../sass/app.scss */
+/* line 146, ../sass/app.scss */
 .top-bar.expanded .name {
   bottom: 0;
 }
-/* line 131, ../sass/app.scss */
+/* line 150, ../sass/app.scss */
 .top-bar .name {
   float: left;
   position: relative;
   bottom: 10px;
 }
-/* line 135, ../sass/app.scss */
+/* line 154, ../sass/app.scss */
 .top-bar .name h1 {
   padding: 0 25px;
 }
-/* line 137, ../sass/app.scss */
+/* line 156, ../sass/app.scss */
 .top-bar .name h1 a {
   width: auto;
 }
-/* line 141, ../sass/app.scss */
+/* line 160, ../sass/app.scss */
 .top-bar .name .logo {
   width: 36px;
   height: 36px;
 }
-/* line 147, ../sass/app.scss */
+/* line 166, ../sass/app.scss */
 .top-bar ul.title-area li.actions {
   float: left;
   margin-top: 10px;
 }
-/* line 150, ../sass/app.scss */
+/* line 169, ../sass/app.scss */
 .top-bar ul.title-area li.actions ul.actionbar {
   display: inline;
   margin-right: 25px;
@@ -6814,86 +6836,86 @@ span.shadow.shadow-right {
   width: auto;
   height: auto;
 }
-/* line 156, ../sass/app.scss */
+/* line 175, ../sass/app.scss */
 .top-bar ul.title-area li.actions ul.actionbar li {
   float: left;
 }
-/* line 158, ../sass/app.scss */
+/* line 177, ../sass/app.scss */
 .top-bar ul.title-area li.actions ul.actionbar li a:not(.botton) {
   color: #2b2b2b;
   padding: 10px 15px;
 }
-/* line 162, ../sass/app.scss */
+/* line 181, ../sass/app.scss */
 .top-bar ul.title-area li.actions ul.actionbar li a:not(.botton):hover {
   color: #F8F8F8;
   background-color: #69bed7;
 }
 
-/* line 173, ../sass/app.scss */
+/* line 192, ../sass/app.scss */
 .top-bar-section ul {
   background: #F8F8F8;
 }
-/* line 175, ../sass/app.scss */
+/* line 194, ../sass/app.scss */
 .top-bar-section ul li {
   border-right: 1px solid #f8f8f8;
 }
-/* line 177, ../sass/app.scss */
+/* line 196, ../sass/app.scss */
 .top-bar-section ul li.split {
   border-left: 1px solid #ccc;
 }
-/* line 180, ../sass/app.scss */
+/* line 199, ../sass/app.scss */
 .top-bar-section ul li a {
   background: #F8F8F8;
 }
-/* line 182, ../sass/app.scss */
+/* line 201, ../sass/app.scss */
 .top-bar-section ul li a i {
   margin: 0 5px;
 }
-/* line 186, ../sass/app.scss */
+/* line 205, ../sass/app.scss */
 .top-bar-section ul li a:not(.botton) {
   padding: 0 35px;
 }
 @media screen and (max-width: 1024px) {
-  /* line 190, ../sass/app.scss */
+  /* line 209, ../sass/app.scss */
   .top-bar-section ul li a:not(.botton) {
     padding: 0px 20px;
   }
 }
-/* line 194, ../sass/app.scss */
+/* line 213, ../sass/app.scss */
 .top-bar-section ul li a:not(.button):hover, .top-bar-section ul li a.active {
   color: #F8F8F8;
   background-color: #69bed7;
 }
-/* line 199, ../sass/app.scss */
+/* line 218, ../sass/app.scss */
 .top-bar-section ul li .avatar {
   cursor: pointer;
 }
-/* line 201, ../sass/app.scss */
+/* line 220, ../sass/app.scss */
 .top-bar-section ul li .avatar span {
   margin: 0 8px;
 }
-/* line 204, ../sass/app.scss */
+/* line 223, ../sass/app.scss */
 .top-bar-section ul li .avatar i {
   font-size: 20px;
   position: relative;
   top: 2px;
 }
-/* line 209, ../sass/app.scss */
+/* line 228, ../sass/app.scss */
 .top-bar-section ul li .avatar img {
   width: 26px;
   height: 26px;
   border: 1px solid #b4b9c1;
   border-radius: 2px;
 }
-/* line 217, ../sass/app.scss */
+/* line 236, ../sass/app.scss */
 .top-bar-section ul li .avatar:hover img {
   border-color: #5ebbc2;
 }
-/* line 225, ../sass/app.scss */
+/* line 244, ../sass/app.scss */
 .top-bar-section ul.right li {
   margin-right: 24px;
 }
-/* line 227, ../sass/app.scss */
+/* line 246, ../sass/app.scss */
 .top-bar-section ul.right li ul.action-dropdown {
   display: none;
   background: none;
@@ -6903,7 +6925,7 @@ span.shadow.shadow-right {
   right: 30px;
   z-index: 2013;
 }
-/* line 235, ../sass/app.scss */
+/* line 254, ../sass/app.scss */
 .top-bar-section ul.right li ul.action-dropdown li {
   margin: 0 0 0 10px;
   padding: 0 25px 0 80px;
@@ -6911,7 +6933,7 @@ span.shadow.shadow-right {
   background-color: white;
   float: none;
 }
-/* line 242, ../sass/app.scss */
+/* line 261, ../sass/app.scss */
 .top-bar-section ul.right li ul.action-dropdown li a {
   margin: 0;
   padding: 10px 0;
@@ -6919,36 +6941,36 @@ span.shadow.shadow-right {
   line-height: 20px;
   color: #584f4f;
 }
-/* line 249, ../sass/app.scss */
+/* line 268, ../sass/app.scss */
 .top-bar-section ul.right li ul.action-dropdown li a:hover {
   color: #1491ad;
 }
-/* line 254, ../sass/app.scss */
+/* line 273, ../sass/app.scss */
 .top-bar-section ul.right li ul.action-dropdown li.normal i {
   position: absolute;
   margin-left: -30px;
   margin-top: 3px;
 }
-/* line 261, ../sass/app.scss */
+/* line 280, ../sass/app.scss */
 .top-bar-section ul.right li ul.action-dropdown li.normal:hover {
   background-color: #69bed7;
   color: #F8F8F8;
 }
-/* line 264, ../sass/app.scss */
+/* line 283, ../sass/app.scss */
 .top-bar-section ul.right li ul.action-dropdown li.normal:hover a {
   color: #F8F8F8;
 }
-/* line 268, ../sass/app.scss */
+/* line 287, ../sass/app.scss */
 .top-bar-section ul.right li ul.action-dropdown li.split {
   padding: 0;
   border-bottom: 1px dotted #e9e9e9;
 }
-/* line 272, ../sass/app.scss */
+/* line 291, ../sass/app.scss */
 .top-bar-section ul.right li ul.action-dropdown li.top {
   padding: 5px 5px 0 80px;
   height: 74px;
 }
-/* line 276, ../sass/app.scss */
+/* line 295, ../sass/app.scss */
 .top-bar-section ul.right li ul.action-dropdown li.top img {
   position: absolute;
   left: 15px;
@@ -6956,23 +6978,23 @@ span.shadow.shadow-right {
   width: 64px;
   height: 64px;
 }
-/* line 283, ../sass/app.scss */
+/* line 302, ../sass/app.scss */
 .top-bar-section ul.right li ul.action-dropdown li.top span {
   display: block;
   width: 180px;
 }
-/* line 288, ../sass/app.scss */
+/* line 307, ../sass/app.scss */
 .top-bar-section ul.right li ul.action-dropdown li.top span.user-name {
   color: #1491ad;
   line-height: 25px;
   padding-top: 5px;
 }
-/* line 293, ../sass/app.scss */
+/* line 312, ../sass/app.scss */
 .top-bar-section ul.right li ul.action-dropdown li.top span.user-email {
   font-size: 12px;
   color: gray;
 }
-/* line 298, ../sass/app.scss */
+/* line 317, ../sass/app.scss */
 .top-bar-section ul.right li ul.action-dropdown span.arrow {
   display: block;
   position: absolute;
@@ -6985,22 +7007,22 @@ span.shadow.shadow-right {
   border-bottom: 24px solid #fff;
 }
 
-/* line 314, ../sass/app.scss */
+/* line 333, ../sass/app.scss */
 section.main {
   color: #584f4f;
   background-color: #F8F8F8;
 }
-/* line 317, ../sass/app.scss */
+/* line 336, ../sass/app.scss */
 section.main .row {
   max-width: 100%;
   padding: 0 10px;
 }
-/* line 321, ../sass/app.scss */
+/* line 340, ../sass/app.scss */
 section.main .editor {
   resize: none;
   line-height: 155%;
 }
-/* line 326, ../sass/app.scss */
+/* line 345, ../sass/app.scss */
 section.main .preview {
   background-color: white;
   overflow-y: scroll;
@@ -7008,24 +7030,24 @@ section.main .preview {
   font-family: Arvo, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   position: relative;
 }
-/* line 333, ../sass/app.scss */
+/* line 352, ../sass/app.scss */
 section.main .preview .inner {
   position: relative;
 }
-/* line 335, ../sass/app.scss */
+/* line 354, ../sass/app.scss */
 section.main .preview .inner * {
   position: relative;
 }
-/* line 339, ../sass/app.scss */
+/* line 358, ../sass/app.scss */
 section.main .preview h1 {
   font-size: 2em;
 }
-/* line 342, ../sass/app.scss */
+/* line 361, ../sass/app.scss */
 section.main .preview h2 {
   font-size: 1.5em;
 }
 
-/* line 347, ../sass/app.scss */
+/* line 366, ../sass/app.scss */
 .helper {
   position: absolute;
   height: 0;

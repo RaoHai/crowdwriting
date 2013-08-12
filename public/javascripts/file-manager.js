@@ -128,6 +128,7 @@ define([
 		core.createEditor(function() {
 			// Callback to save content when textarea changes
 			fileMgr.saveFile();
+			$('#action-save').html('<i class="icon-save"></i>');
 		});
 	};
 	
@@ -317,14 +318,14 @@ define([
 		
 		fileMgr.selectFile();
 
-		$(".action-create-file").click(function() {
+		$("#action-new").click(function() {
 			var fileDesc = fileMgr.createFile();
 			fileMgr.selectFile(fileDesc);
+			fileMgr.setId();
 			var wmdInput = $("#wmd-input").focus().get(0);
 			if(wmdInput.setSelectionRange) {
 				wmdInput.setSelectionRange(0, 0);
 			}
-			$("#file-title").click();
 		});
 		$(".action-remove-file").click(function() {
 			fileMgr.deleteFile();
@@ -351,7 +352,7 @@ define([
 		$('#ChapterTitle').change(function () {
 			applyTitle($(this));
 		});
-		$("#file-title-input").blur(function() {
+		$("#ChapterTitle").blur(function() {
 			applyTitle($(this));
 		}).keyup(function(e) {
 			if (e.keyCode == 13) {

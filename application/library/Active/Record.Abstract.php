@@ -91,7 +91,7 @@ class Active_Record_Abstract{
 			$vals = join('\',\'',$insertValues);
 			$sql = $savecolumns.$insert.") VALUES('".$vals."');";
 			$this->db->query($sql);
-			$this->Id = $this->$primary = mysql_insert_id();
+			$this->id = $this->$primary = mysql_insert_id();
 	}
 	public function update($conditions)
 	{
@@ -112,15 +112,16 @@ class Active_Record_Abstract{
 			}
 		}
 
-		if (is_numeric($conditions)) {
-			$condition = "WHERE `$instance`.`$primary` = $condition";
+		if (empty($conditions)) {
+			$condition = $this->id;
+			$condition = " WHERE `$instance`.`$primary` = $condition";
 		} else {
-			$condition = "WHERE $conditions";
+			$condition = " WHERE $conditions";
 		}
 
 		$sql = $savecolumns.join(",", $updateColumns).$condition;
 		$this->db->query($sql);
-		return "ok";
+		return $this;
 	}
 
 }

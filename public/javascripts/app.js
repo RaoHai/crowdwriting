@@ -1,13 +1,18 @@
 /*global $, document, window, markdown*/
 $(function () {
-	var fnMain, docId;
+	var fnMain, fnInitNotice, docId, fnEvents;
+
+	var notice = function (msg, className) {
+		className = className ? className : 'normal';
+		$('<li />').addClass(className).html(msg).appendTo($('.notice ul'));
+	};
 
 	//localStorage.clear();
 
 	//fileMgr = window.fileMgr;
 	fnMain = function () {
 		docId = 0;
-		var fnResizeEditor, timer, editor, previewer, mainEditor;
+		var fnResizeEditor, timer, editor, previewer, mainEditor, saveAction;
 		fnResizeEditor = function () {
 			var height, editorHeight;
 			height = $(window).height();
@@ -28,6 +33,7 @@ $(function () {
 		});
 
 		fnResizeEditor();
+		fnEvents();
 		$(document).foundation();
 		$('.avatar').click(function (e) {
 			$('.action-dropdown').fadeToggle(100);
@@ -42,11 +48,27 @@ $(function () {
 		});
 
 	};
+	fnEvents = function () {
+		$(document).bind('keydown', function(e) {
+  			if(e.ctrlKey && (e.which == 83)) {
+			    saveAction($('#action-save'));
+			    event.preventDefault();
+			    return false;
+			}
+		});
+	};
 	$('#action-style').click(function () {
 		$(document.body).toggleClass('fullwidth');
 	});
-	$('#action-save').click(function () {
+	$('#action-new').click(function () {
+		
+	});
+	$('#action-save').click(function() {
+		saveAction($(this));
+	});
+	saveAction = function ($this) {
 		var $Id, $type;
+		$this.html('<i class="icon-spinner icon-spin" />');
 		if ($('#wmd-input').attr('data-id')) {
 			$Id = $('#wmd-input').attr('data-id');
 			$type = "put";
@@ -64,16 +86,15 @@ $(function () {
 				'ChapterContent': $('#wmd-input').val(),
 			},
 			success: function (value) {
-				console.log(value);
-				//if (value.Status === 'OK') {
-					docId = value.Id;
+					docId = value.id;
 					fileMgr.setUpdateTime(value.UpdateTime);
 					fileMgr.setId(docId);
 					$('#wmd-input').attr('data-id', docId);
-				//};
+					$this.html('<i class="icon-ok"></i>');
 			}
 		});
-	});
+	};
+
 	fnMain();
 
 
