@@ -1,6 +1,40 @@
 /*global $, document, window, markdown*/
-$(function () {
+define([
+	"jquery",
+	"underscore"
+], function ($, _) {
 	var fnMain, fnInitNotice, docId, fnEvents;
+
+	var $templates = $('.template');
+	var templates = {};
+
+	_.each($templates, function(template) {
+		var $key = $(template).attr('data-template');
+		var context = $(template).find('script');
+		console.log(context);
+		templates[$key] = {
+			dom : $(template),
+			template : $(context).html()
+		}
+	});
+	var _t = function (name, data) {
+		var compile =  _.template(templates[name].template);
+		templates[name].dom.html(compile(data));
+		templates[name].dom.removeClass('template');
+	};
+
+	var app = {
+		onCheckUser : function (user) {
+			if (user === 0) {
+				_t('logined', {"login" : false});	
+				$('.avatar').attr('href','login');
+
+			} else {
+				_t('logined', {"login" : true});	
+				_t('logined-drop')
+			}
+		}
+	};
 
 	var notice = function (msg, className) {
 		className = className ? className : 'normal';
@@ -24,7 +58,6 @@ $(function () {
 				'height': editorHeight + 46
 			});
 		};
-
 		$(window).resize(function () {
 			if (timer) {
 				clearTimeout(timer);
@@ -97,5 +130,6 @@ $(function () {
 
 	fnMain();
 
+	return app;
 
 });

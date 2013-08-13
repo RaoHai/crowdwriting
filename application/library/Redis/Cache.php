@@ -12,7 +12,14 @@
 				echo $e;
 			}
 		}
-
+		static public function cacheTemplate($key, $template)
+		{
+			self::$_redis->set("template_$key",$template);
+		}
+		static public function templateFromCache($key)
+		{
+			return self::$_redis->get("template_$key");
+		}
 		static public function getInstance()
 		{
 			if (is_null(self::$_instance) || !isset(self::$_instance)) {

@@ -1,7 +1,7 @@
 define([
     "underscore",
     "config"
-], function(_) {
+], function(_) { 
 	
 	var settings = {
 		layoutOrientation : "horizontal",
