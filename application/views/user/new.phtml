@@ -6,9 +6,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
   <title>Crowd Writing--{$domain}</title>
-  <link href="stylesheets/app.css" rel="stylesheet" type="text/css"> 
-  <link href="stylesheets/font-awesome.css" rel="stylesheet" type="text/css"> 
-  <script src="javascripts/vendor/custom.modernizr.js"></script>
+  <link href="/stylesheets/app.css" rel="stylesheet" type="text/css"> 
+  <link href="/stylesheets/font-awesome.css" rel="stylesheet" type="text/css"> 
+  <script src="/javascripts/vendor/custom.modernizr.js"></script>
 
 </head>
 <body class='full'>
@@ -25,16 +25,16 @@
 					<div class="columns large-7">
 
 						<form class="custom" action='login' method="post">
-							<h3>Sign In.</h3>
-							<input type='text' id='username' name='username' placeholder='Email Address'>
-							<input type='password' id='password' name='password' placeholder='Password'>
+							<h3>Create new account.</h3>
+							<input type='text' id='username' placeholder='Email Address'>
+							<input type='password' id='password' placeholder='Password'>
+							<input type='password' id='password1' placeholder='Confirm Your Password'>
 							<div class="row action collapse">
 								<div class="columns large-6">
-									<button>LOGIN</button>
+									<button>REGISTER</button>
 								</div>
 								<div class="columns large-6">
-									<label class="right inline underline"><a href="/user/forget" class='inline'>Forgot your password?</a></label>
-
+									<input type='checkbox' class='inline'>
 								</div>
 							</div>
 						</form>
@@ -43,7 +43,7 @@
 					<div class="columns large-5">
 						<div class="recommand"><span>Recommanded</span></div>
 						<div class="logins">
-							<a href='#'><img src='img/weibo.png'></a>
+							<a href='#'><img src='/img/weibo.png'></a>
 
 
 						</div>
@@ -51,7 +51,7 @@
 					</div>
 				</div>
 				<div class="footline">
-					Dont't have an account? <a href='register'>Join us now</a>
+					Already have an account? <a href='login'>Sign In</a>
 				</div>
 			</div>
 		</div>
@@ -61,6 +61,6 @@
 	</div>
 
   {$scripts}
-  <script src='javascripts/login.js'></script>
+  <script src='/javascripts/login.js'></script>
 </body>
 </html>
