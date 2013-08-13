@@ -5,6 +5,7 @@
 *.pydevproject
 .project
 .metadata
+.log
 bin/
 tmp/
 phpmyadmin/

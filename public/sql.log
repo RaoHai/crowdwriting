@@ -1,1 +1,0 @@
-select * from `Chapter` where `Chapter`.`ChapterId` = 11
