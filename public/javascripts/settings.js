@@ -7,8 +7,8 @@ define([
 		layoutOrientation : "horizontal",
 		lazyRendering : true,
 		editorFontSize : 14,
-		defaultContent: "\n\n\n> Written with [StackEdit](http://benweet.github.io/stackedit/).",
-		commitMsg : "Published by http://benweet.github.io/stackedit",
+		defaultContent: "--<",
+		commitMsg : ">--",
 		template : [
             '<!DOCTYPE html>\n',
 			'<html>\n',
