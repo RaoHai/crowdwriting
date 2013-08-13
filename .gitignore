@@ -6,6 +6,7 @@
 .project
 .metadata
 .log
+.sass-cache/
 bin/
 tmp/
 phpmyadmin/
