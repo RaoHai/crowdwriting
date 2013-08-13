@@ -40,6 +40,10 @@ class ezSQL_DB {
 	}
 	static public function query($sql)
 	{
+		$file = fopen("sql.log","a");
+		fwrite($file,$sql);
+		fclose($file);
+
 		$tables = self::$db->get_results($sql);
 		return $tables;
 	}

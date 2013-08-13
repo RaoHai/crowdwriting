@@ -25,7 +25,7 @@ class Active_Record_Abstract{
 		$this->id = $PUT['id'];
 		foreach ($this->type as $key => $value) {
 			if ($v = $PUT[$key]) {
-				$this->$key = $v;
+				$this->$key = $v; 
 			} elseif($value == 'datetime') {
 				$this->$key = date('Y-m-d H:i:s');
 			}
@@ -81,7 +81,10 @@ class Active_Record_Abstract{
 			$insertValues = array();
 			foreach ($this->type as $key => $value) {
 				if ($key != $primary) {
-					$val = empty($this->$key) ? '\'\'' : $this->$key;
+					$val = empty($this->$key) ? '' : $this->$key;
+					if (strpos($key,'Content')) {
+						$val = rawurlencode($val);
+					}
 					array_push($insertColumns, $key);
 					array_push($insertValues, $val);
 				}

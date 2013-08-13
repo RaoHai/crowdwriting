@@ -5,5 +5,10 @@ class BrowseController extends Yaf_Controller_Abstract {
 		$this->getResponse()->setBody("Hello World");	
 		echo $this->getRequest()->getParam("Id");
 	}
+
+	public function showAction()
+	{
+		echo "hello";
+	}
 }
 ?>
