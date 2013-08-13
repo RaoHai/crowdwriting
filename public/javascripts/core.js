@@ -4,12 +4,12 @@ define([
     "utils",
     "settings",
     "extension-manager",
+    "app",
     "storage",
     "config",
     "lib/bootstrap",
     "lib/Markdown.Editor"
-], function($, _, utils, settings, extensionMgr) {
-	
+], function($, _, utils, settings, extensionMgr, app) {
 	var core = {};
 	
 	// Used for periodic tasks
@@ -93,7 +93,7 @@ define([
 			url : "session",
 			timeout : 1000, dataType : "json"
 		}).done(function(value) {
-			window.user = value;
+			app.onCheckUser(value);
 		});	
 	}	
 	// Load settings in settings dialog

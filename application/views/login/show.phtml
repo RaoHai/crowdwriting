@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Crowd Writing--{$domain}</title>
+  <link href="stylesheets/app.css" rel="stylesheet" type="text/css"> 
+  <link href="stylesheets/font-awesome.css" rel="stylesheet" type="text/css"> 
+  <script src="javascripts/vendor/custom.modernizr.js"></script>
+
+</head>
+<body class='full'>
+	<div class="row">
+		<div class="columns large-1 whitewrap">
+			<span>__</span>
+		</div>
+		<div class="columns large-10">
+			<div class="login-panel">
+				<div class="title">
+					<span class="close">✕</span>
+				</div>
+				<div class="row collapse form">
+					<div class="columns large-7">
+
+						<form class="custom" action='login' method="post">
+							<h3>Sign In.</h3>
+							<input type='text' id='username' placeholder='Email Address'>
+							<input type='password' id='username' placeholder='Password'>
+							<div class="row action collapse">
+								<div class="columns large-6">
+									<button>LOGIN</button>
+								</div>
+								<div class="columns large-6">
+									<label class="right inline"><a href="/user/forget" class='inline'>Forgot your password?</a></label>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="columns large-5">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="columns large-1 whitewrap">
+			<span>__</span>
+		</div>
+	</div>
+
+  {$scripts}
+  <script src='javascripts/login.js'></script>
+</body>
+</html>
