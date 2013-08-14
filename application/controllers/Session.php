@@ -7,7 +7,8 @@ class SessionController extends Yaf_Controller_Abstract {
 
 	public function showAction()
 	{
-		echo isset($_SESSION['USER']) ? json_encode($_SESSION['USER']) : json_encode(0);
+		$user = Yaf_Session::getInstance()->get('user');
+		echo isset($user) ? json_encode($user) : json_encode(0);
 	}
 }
 ?>

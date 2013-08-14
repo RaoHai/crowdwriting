@@ -5,6 +5,9 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
     public function _initConfig() {
         $config = Yaf_Application::app()->getConfig();
         Yaf_Registry::set("config", $config); 
+
+        // ini_set('display_errors', 'On');
+        Yaf_Session::getInstance()->start();
         $request = Yaf_Dispatcher::getInstance()->getRequest();
         if (!$request->isXmlHttpRequest()) {
           $options = array(
@@ -41,5 +44,7 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
        $view= new Templar_Adapter(null);
             //$view->loadDefaultVars();
        Yaf_Dispatcher::getInstance()->setView($view);
+       $view->assign('error',Yaf_Session::getInstance()->get('error'));
+
    }
 }

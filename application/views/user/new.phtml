@@ -12,11 +12,13 @@
 
 </head>
 <body class='full'>
+
 	<div class="row">
 		<div class="columns large-1 whitewrap">
 			<span>__</span>
 		</div>
 		<div class="columns large-10">
+			<h1>CW</h1>
 			<div class="login-panel">
 				<div class="title">
 					<span class="close"><a href='/'>✕</a></span>
@@ -24,17 +26,16 @@
 				<div class="row collapse form">
 					<div class="columns large-7">
 
-						<form class="custom" action='login' method="post">
+						<form class="custom validate" action='/user' method="post">
 							<h3>Create new account.</h3>
-							<input type='text' id='username' placeholder='Email Address'>
-							<input type='password' id='password' placeholder='Password'>
-							<input type='password' id='password1' placeholder='Confirm Your Password'>
+							<input type='text' id='username'name='username' placeholder='Email Address' data-validator='isEmail'>
+							<input type='password' id='password' name='password' placeholder='Password' data-validator='notNull'>
+							<input type='password' id='password1' placeholder='Confirm Your Password' data-validator='notNull'>
 							<div class="row action collapse">
 								<div class="columns large-6">
 									<button>REGISTER</button>
 								</div>
 								<div class="columns large-6">
-									<input type='checkbox' class='inline'>
 								</div>
 							</div>
 						</form>
@@ -51,7 +52,7 @@
 					</div>
 				</div>
 				<div class="footline">
-					Already have an account? <a href='login'>Sign In</a>
+					Already have an account? <a href='/login'>Sign In</a>
 				</div>
 			</div>
 		</div>

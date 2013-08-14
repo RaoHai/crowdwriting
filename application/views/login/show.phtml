@@ -17,17 +17,18 @@
 			<span>__</span>
 		</div>
 		<div class="columns large-10">
-			<div class="login-panel">
+			<h1>CW</h1>
+			<div class="login-panel" data-error={$error}>
 				<div class="title">
 					<span class="close"><a href='/'>✕</a></span>
 				</div>
 				<div class="row collapse form">
 					<div class="columns large-7">
 
-						<form class="custom" action='login' method="post">
+						<form class="custom validate" action='login' method="post">
 							<h3>Sign In.</h3>
-							<input type='text' id='username' name='username' placeholder='Email Address'>
-							<input type='password' id='password' name='password' placeholder='Password'>
+							<input type='text' id='username' name='username' placeholder='Email Address' data-validator='isEmail'>
+							<input type='password' id='password' name='password' placeholder='Password' data-validator='notNull'>
 							<div class="row action collapse">
 								<div class="columns large-6">
 									<button>LOGIN</button>
@@ -44,14 +45,12 @@
 						<div class="recommand"><span>Recommanded</span></div>
 						<div class="logins">
 							<a href='#'><img src='img/weibo.png'></a>
-
-
 						</div>
 						
 					</div>
 				</div>
 				<div class="footline">
-					Dont't have an account? <a href='register'>Join us now</a>
+					<b class='error'>{$error} </b> | Dont't have an account? <a href='/user/new'>Join us now</a>
 				</div>
 			</div>
 		</div>

@@ -59,6 +59,10 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus
 	border:1px solid #cccccc;
 	margin: 0 auto;
 }
+.error{
+	margin: 0 10px;
+	color:red;
+}
 .underline a{
 	text-decoration: underline;
 	color: #7e7e7e;
@@ -100,6 +104,11 @@ span.shadow{
 	body{
 		&.full{
 			padding: 0;
+			h1{
+				position: absolute;
+				top:60px;
+				color: white;
+			}
 		}
 
 		background-image: url(/img/bg.jpg);
