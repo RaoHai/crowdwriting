@@ -85,6 +85,7 @@ class Templar_Adapter implements Yaf_View_Interface
 
         $parts = explode(':', $input);
         $string = $parts[0];
+        
 
         return isset($this->_templar->$string) ? $this->_templar->$string : '';
         //return $this->_templar->$string;

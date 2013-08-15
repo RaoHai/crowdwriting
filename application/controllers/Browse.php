@@ -8,7 +8,8 @@ class BrowseController extends Yaf_Controller_Abstract {
 
 	public function showAction()
 	{
-		echo "hello";
+		$this->getView()->assign("domain", $_SERVER['SERVER_NAME']);
+		$this->getView()->assign("action", 'browse');
 	}
 }
 ?>

@@ -6,7 +6,7 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
         $config = Yaf_Application::app()->getConfig();
         Yaf_Registry::set("config", $config); 
 
-        // ini_set('display_errors', 'On');
+        ini_set('display_errors', 'On');
         Yaf_Session::getInstance()->start();
         $request = Yaf_Dispatcher::getInstance()->getRequest();
         if (!$request->isXmlHttpRequest()) {
@@ -27,9 +27,7 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
     }
 
     public function _initRoute(Yaf_Dispatcher $dispatcher) {
-            // $router = new Yaf_Route_Regex(
-            //     '/^\/*(\w+)\/(\d+\/?)$/'
-            // }
+        
         $router = Yaf_Dispatcher::getInstance()->getRouter();
         $route1 = new Resty_Route();
         $router->addRoute('product', $route1);
@@ -42,9 +40,17 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
 
     public function _initView(Yaf_Dispatcher $dispatcher) {
        $view= new Templar_Adapter(null);
-            //$view->loadDefaultVars();
        Yaf_Dispatcher::getInstance()->setView($view);
        $view->assign('error',Yaf_Session::getInstance()->get('error'));
+       
+       if (Yaf_Session::getInstance()->get('user') == '') {
+        if ($_COOKIE['user']) {
+          Yaf_Session::getInstance()->set('user', $_COOKIE['user']);
+          // $view->assign('userid', $_COOKIE['user']);
+         } 
+       } else {
+        // $view->assign('userid',Yaf_Session::getInstance()->get('user'));
+       }
 
    }
 }

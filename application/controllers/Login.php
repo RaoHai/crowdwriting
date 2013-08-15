@@ -15,6 +15,7 @@ class LoginController extends Yaf_Controller_Abstract {
 		if ($hashedpass == $result->Password) {
 			Yaf_Session::getInstance()->set('error', '');
 			Yaf_Session::getInstance()->set('user', $result->UserId);
+			setcookie('user' ,$result->UserId, time() + 36002430);
 			$this->getResponse()->setRedirect("/");
 		} else {
 			Yaf_Session::getInstance()->set('error', 'Login Failed');
