@@ -5,6 +5,7 @@ define([
     "settings",
     "extension-manager",
     "app",
+    "editor",
     "storage",
     "config",
     "lib/bootstrap",
