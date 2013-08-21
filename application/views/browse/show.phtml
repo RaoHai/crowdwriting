@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Crowd Writing--{$domain}</title>
+  <link href="stylesheets/app.css" rel="stylesheet" type="text/css"> 
+  <link href="stylesheets/font-awesome.css" rel="stylesheet" type="text/css"> 
+  <script src="javascripts/vendor/custom.modernizr.js"></script>
+  <script>
+  var require = { baseUrl : "javascripts", deps : [ "main"] };
+  var viewerMode = false;
+  var action = "{$action}";
+  </script>
+  <script src="javascripts/lib/require.js"></script>
+  <style>
+  #wmd-preview{
+    padding: 19px;
+    overflow: auto;
+  }
+  </style>
+</head>
+<body>
+  {$nav}
+  
+  {$scripts}
+</body>
+</html>
