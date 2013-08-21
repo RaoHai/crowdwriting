@@ -5,14 +5,11 @@ requirejs.config({
 	paths: {
 		"jquery": "lib/jquery",
 		"underscore": "lib/underscore",
-		"jgrowl": "lib/jgrowl",
     },
     shim: {
     	'underscore': {
             exports: '_'
-        },
-        'lib/Markdown.Extra': ['lib/Markdown.Converter', 'lib/prettify'],
-        'lib/Markdown.Editor': ['lib/Markdown.Converter']
+        }
     }
 });
 
@@ -32,8 +29,7 @@ if (location.search.indexOf("console") !== -1) {
 // RequireJS entry point. By requiring synchronizer and publisher, we are actually loading all the modules
 require([
 	"jquery",
-	"core",
-	"synchronizer",
-], function($, core) {
-	core.setReady();
+	"app"
+], function($, app) {
+	
 });

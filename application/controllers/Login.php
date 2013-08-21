@@ -9,7 +9,8 @@ class LoginController extends Yaf_Controller_Abstract {
 	{
 		$User = Active_Record::getObject("User");
 		$username = $_POST['username'];
-		$result = $User->find("all","UserName = '$username'")[0];
+		$result = $User->find("all","UserName = '$username'");
+		$result = $result[0];
 		$salt = $result->Salt;
 		$hashedpass = sha1($_POST['password'].$salt);
 		if ($hashedpass == $result->Password) {

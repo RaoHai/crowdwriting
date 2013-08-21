@@ -48,6 +48,10 @@ class Templar_Adapter implements Yaf_View_Interface
 	}
 
 	public function render($name, $valor = NULL) {
+
+		$controllerName = Yaf_Dispatcher::getInstance()->getRequest()->getControllerName();
+		$this->assign("action", $controllerName);
+
 		$path = APP_PATH.'/application/views/'.$name;		
 		$lines = file($path);
 		//return ''.join($lines);

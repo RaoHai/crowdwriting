@@ -29,6 +29,7 @@ class UserController extends Yaf_Controller_Abstract {
 		$postdata['Permission'] = 'user';
 		$User->getFromRequest($postdata);
 		$User->save();
-		$this->getResponse()->setBody(json_encode($User));
+		Yaf_Session::getInstance()->set('error', 'Register Successed');
+		$this->getResponse()->setRedirect("/login");
 	}
 }

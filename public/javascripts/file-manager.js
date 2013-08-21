@@ -105,7 +105,7 @@ define([
 		}
 		
 		// Recreate the editor
-		if (fileDesc.Id) {
+		if (fileDesc.Id && fileDesc.Id !== undefined) {
 			$.ajax({ 
 				url : "Chapter/" + fileDesc.Id,
 				timeout : 2000

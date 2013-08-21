@@ -42,15 +42,16 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
        $view= new Templar_Adapter(null);
        Yaf_Dispatcher::getInstance()->setView($view);
        $view->assign('error',Yaf_Session::getInstance()->get('error'));
-       
+        
        if (Yaf_Session::getInstance()->get('user') == '') {
-        if ($_COOKIE['user']) {
+        if (isset($_COOKIE['user'])) {
           Yaf_Session::getInstance()->set('user', $_COOKIE['user']);
           // $view->assign('userid', $_COOKIE['user']);
          } 
        } else {
         // $view->assign('userid',Yaf_Session::getInstance()->get('user'));
        }
+
 
    }
 }
