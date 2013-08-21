@@ -6,7 +6,7 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
         $config = Yaf_Application::app()->getConfig();
         Yaf_Registry::set("config", $config); 
 
-        ini_set('display_errors', 'On');
+        // ini_set('display_errors', 'On');
         Yaf_Session::getInstance()->start();
         $request = Yaf_Dispatcher::getInstance()->getRequest();
         if (!$request->isXmlHttpRequest()) {
