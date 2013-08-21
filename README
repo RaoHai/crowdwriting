@@ -58,18 +58,21 @@ server {
 }
 配置文件自己找，，，
 
-memcache
-===========
-照这篇配置好memcache
-版本注意：
-memcache 选 2.2.7
-memcached 选 1.4.15
-libevent选1.3
-http://www.ccvita.com/257.html
+Redis
+======
+$ wget http://redis.googlecode.com/files/redis-2.6.14.tar.gz
+$ tar xzf redis-2.6.14.tar.gz
+$ cd redis-2.6.14
+$ make
 
-启动：
-# /usr/local/bin/memcached -d -m 10 -u root -l 127.0.0.1 -p 11211 -c 256 -P /tmp/memcached.pid
+$ git clone https://github.com/nicolasff/phpredis.git
+$ phpize
+$ ./configure --with-php-config=$PHP_BIN/php-config
+$ make
+$ make install
 
+php.ini最后一行，加
+extension = redis.so
 
 
 

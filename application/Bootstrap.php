@@ -44,7 +44,7 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
        $view->assign('error',Yaf_Session::getInstance()->get('error'));
         
        if (Yaf_Session::getInstance()->get('user') == '') {
-        if (isset($_COOKIE['user'])) {
+        if (isset($_COOKIE['user']) && $_COOKIE['user']) {
           Yaf_Session::getInstance()->set('user', $_COOKIE['user']);
           // $view->assign('userid', $_COOKIE['user']);
          } 
