@@ -32,7 +32,7 @@ class Active_Record_Abstract{
 		}
 	}
 	public function find($columns, $conditions = NULL, $limit = NULL, $sort = NULL)
-	{
+	{ 
 		$table = $this->instance;
 		$id = $table.'Id';
 		$queryCommand = 'select';

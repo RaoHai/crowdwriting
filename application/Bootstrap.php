@@ -7,7 +7,7 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
         $config = Yaf_Application::app()->getConfig();
         Yaf_Registry::set("config", $config); 
 
-        ini_set('display_errors', 'On');
+        // ini_set('display_errors', 'On');
         Yaf_Session::getInstance()->start();
         $request = Yaf_Dispatcher::getInstance()->getRequest();
         if (!$request->isXmlHttpRequest()) {
@@ -43,7 +43,7 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
        $view= new Templar_Adapter(null);
        Yaf_Dispatcher::getInstance()->setView($view);
        $view->assign('error',Yaf_Session::getInstance()->get('error'));
-       
+        
        if (Yaf_Session::getInstance()->get('user') == '') {
         if (isset($_COOKIE['user']) && $_COOKIE['user']) {
           Yaf_Session::getInstance()->set('user', $_COOKIE['user']);
@@ -52,6 +52,7 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
        } else {
         // $view->assign('userid',Yaf_Session::getInstance()->get('user'));
        }
+
 
    }
 }

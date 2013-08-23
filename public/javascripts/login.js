@@ -15,7 +15,7 @@ $(function(){
 			$panel.animate({'margin-left':2*(20-5*i)},50);
 		}
 	}
-	if ($('.login-panel').attr('data-error')!== '') {
+	if ($('.login-panel').attr('data-error')) {
 		shake($('.login-panel'));
 	};
 

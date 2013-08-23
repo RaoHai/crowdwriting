@@ -1,16 +1,16 @@
 // RequireJS configuration
 requirejs.config({
-  waitSeconds: 0,
-  urlArgs: "bust=" + (new Date()).getTime(),
-  paths: {
-    "jquery": "lib/jquery",
-    "underscore": "lib/underscore"
-  },
-  shim: {
-    'underscore': {
-      exports: '_'
+	waitSeconds: 0,
+	urlArgs: "bust=" + (new Date()).getTime(),
+	paths: {
+		"jquery": "lib/jquery",
+		"underscore": "lib/underscore",
+    },
+    shim: {
+    	'underscore': {
+            exports: '_'
+        }
     }
-  }
 });
 
 // Defines the logger object
