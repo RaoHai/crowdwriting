@@ -1,6 +1,13 @@
 请预先安装php,php5-dev
 =======================
 
+
+你可能需要预先
+apt-get install libpcre3 libpcre3-dev
+apt-get install build-essential
+apt-get install openssl
+apt-get install libssl-dev
+
 服务器使用nginx
 ================
 
