@@ -6,6 +6,7 @@
 
 wget http://nginx.org/download/nginx-1.4.1.tar.gz
 tar zxvf ngin*
+./configure
 make
 make install
 嫌麻烦可以直接sudo apt-get install nginx
