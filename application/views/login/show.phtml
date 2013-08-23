@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <title>Crowd Writing--{$domain}</title>
+  <title>Crowd Writing--{{domain}}</title>
   <link href="stylesheets/app.css" rel="stylesheet" type="text/css"> 
   <link href="stylesheets/font-awesome.css" rel="stylesheet" type="text/css"> 
   <script src="javascripts/vendor/custom.modernizr.js"></script>
@@ -18,7 +18,7 @@
 		</div>
 		<div class="columns large-10">
 			<h1>CW</h1>
-			<div class="login-panel" data-error={$error}>
+			<div class="login-panel" data-error={{error}}>
 				<div class="title">
 					<span class="close"><a href='/'>✕</a></span>
 				</div>
@@ -50,7 +50,7 @@
 					</div>
 				</div>
 				<div class="footline">
-					<b class='error'>{$error} </b> | Dont't have an account? <a href='/user/new'>Join us now</a>
+					<b class='error'>{{error}} </b> | Dont't have an account? <a href='/user/new'>Join us now</a>
 				</div>
 			</div>
 		</div>
@@ -59,7 +59,7 @@
 		</div>
 	</div>
 
-  {$scripts}
+   {{ include('/partical/scripts.phtml') }}
   <script src='javascripts/login.js'></script>
 </body>
 </html>

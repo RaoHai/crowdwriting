@@ -5,14 +5,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <title>Crowd Writing--{$domain}</title>
+  <title>Crowd Writing--{{domain}}</title>
   <link href="stylesheets/app.css" rel="stylesheet" type="text/css"> 
   <link href="stylesheets/font-awesome.css" rel="stylesheet" type="text/css"> 
   <script src="javascripts/vendor/custom.modernizr.js"></script>
   <script>
   var require = { baseUrl : "javascripts", deps : [ "write"] };
   var viewerMode = false;
-  var Category = '{$controller}';
+  var Category = '{{controller}}';
   </script>
   <script src="javascripts/lib/require.js"></script>
   <style>
@@ -23,7 +23,7 @@
   </style>
 </head>
 <body>
-  {$nav}
+ {{ include('/partical/nav.phtml') }}
   <div id="wmd-button-bar" style='display:none'></div>
   <section class="main">
     <div class="row editor">
@@ -42,6 +42,6 @@
     </div>
   </section> 
   <textarea id="md-section-helper" class='editor helper'></textarea>
-  {$scripts}
+  {{ include('/partical/scripts.phtml') }}
 </body>
 </html>

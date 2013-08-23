@@ -5,22 +5,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <title>Crowd Writing--{$domain}</title>
+  <title>Crowd Writing--{{domain}}</title>
   <link href="stylesheets/app.css" rel="stylesheet" type="text/css"> 
   <link href="stylesheets/font-awesome.css" rel="stylesheet" type="text/css"> 
   <script src="javascripts/vendor/custom.modernizr.js"></script>
   <script>
   var require = { baseUrl : "javascripts", deps : [ "main"] };
-  var Category = '{$controller}';
+  var Category = '{{controller}}';
   </script>
   <script src="javascripts/lib/require.js"></script>
 </head>
 <body>
-  {$nav}
+  {{ include('/partical/nav.phtml') }}
   <section class="main">
 
   </section> 
 
-  {$scripts}
+    {{ include('/partical/scripts.phtml') }}
 </body>
 </html>

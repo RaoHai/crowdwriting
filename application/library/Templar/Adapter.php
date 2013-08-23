@@ -1,4 +1,6 @@
 <?php
+require_once APP_PATH.'/application/library/Twig/Autoloader.php';
+Twig_Autoloader::register();
 
 class Templar_Adapter implements Yaf_View_Interface
 {
@@ -6,18 +8,12 @@ class Templar_Adapter implements Yaf_View_Interface
 
 	public function __construct($tmplPath = null, $extraParams = array())
 	{
-		$this->_templar = new StdClass();
-		$this->loadDefaultVars();
+		$this->_templar = array();
 	}
 
 	public function getEngine()
 	{
 		return $this->_templar;
-	}
-	public function loadPartical($name)
-	{
-		return $this->render("partical/$name.phtml");
-
 	}
 	public function setScriptPath($path)
 	{
@@ -30,8 +26,8 @@ class Templar_Adapter implements Yaf_View_Interface
 	}
 	public function loadDefaultVars()
 	{
-		$this->_templar->scripts = $this->loadPartical('scripts');
-		$this->_templar->nav = $this->loadPartical('nav');
+		$this->_templar['scripts'] = $this->loadPartical('scripts');
+		$this->_templar['nav'] = $this->loadPartical('nav');
 	}
 	public function getScriptPath()
 	{
@@ -39,7 +35,7 @@ class Templar_Adapter implements Yaf_View_Interface
 	}
 
 	public function assign($spec, $value = null) {
-		$this->_templar->$spec = $value;
+		$this->_templar[$spec] = $value;
 	}
 
 
@@ -49,46 +45,13 @@ class Templar_Adapter implements Yaf_View_Interface
 
 	public function render($name, $valor = NULL) {
 		$this->assign('controller', Yaf_Dispatcher::getInstance()->getRequest()->getControllerName());
-		$path = APP_PATH.'/application/views/'.$name;		
-		$lines = file($path);
-		//return ''.join($lines);
-		$newLines = array();
-		$matches = null;
-		foreach($lines as $line)  {
-			$num = preg_match_all('/\{[$]([^{}]+)\}/', $line, $matches);
-		 	if($num > 0) {
-		 		for($i = 0; $i < $num; $i++) {
-		 			$match = $matches[0][$i];
-		 			$new = $this->transformSyntax($matches[1][$i]);
-		 			$line = str_replace($match, $new, $line);
-		 		}
-		 	}
-		 	$newLines[] = $line;
-		 }
-		 return implode('', $newLines);
-		// $f = fopen($compiledFile, 'w');
-		// fwrite($f, implode('',$newLines));
-		// fclose($f);
-		// require_once($compiledFile);
+		$path = APP_PATH.'/application/views/';		
+		$loader = new Twig_Loader_Filesystem($path);
+		// $twig = new Twig_Environment($loader, array(
+  //   		'cache' => APP_PATH.'/cache/compilation_cache',
+		// ));
+		$twig = new Twig_Environment($loader);
+		return $twig->render($name, $this->_templar);
 	}
 
-	private function transformSyntax($input) {
-        $from = array(
-            '/(^|\|,|\(|\+| )([a-zA-Z_][a-zA-Z0-9_]*)($|\.|\)|\[|\|\+)/',
-            '/(^|\|,|\(|\+| )([a-zA-Z_][a-zA-Z0-9_]*)($|\.|\)|\[|\|\+)/', 
-            '/\./',
-        );
-        $to = array(
-            '$1$this->values["$2$3"]',
-            '$1$this->values["$2$3"]',
-            '->'
-        );
-
-        $parts = explode(':', $input);
-        $string = $parts[0];
-        
-
-        return isset($this->_templar->$string) ? $this->_templar->$string : '';
-        //return $this->_templar->$string;
-    }
 }
