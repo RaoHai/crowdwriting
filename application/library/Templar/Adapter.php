@@ -1,5 +1,5 @@
 <?php
-require_once APP_PATH.'/application/library/Twig/Autoloader.php';
+// require_once APP_PATH.'/application/library/Twig/Autoloader.php';
 Twig_Autoloader::register();
 
 class Templar_Adapter implements Yaf_View_Interface
@@ -44,7 +44,6 @@ class Templar_Adapter implements Yaf_View_Interface
 	}
 
 	public function render($name, $valor = NULL) {
-
 		$controllerName = Yaf_Dispatcher::getInstance()->getRequest()->getControllerName();
 		$this->assign('controller', Yaf_Dispatcher::getInstance()->getRequest()->getControllerName());
 		$path = APP_PATH.'/application/views/';		

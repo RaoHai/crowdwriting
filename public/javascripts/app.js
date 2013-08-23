@@ -29,6 +29,7 @@ define([
   });
 
   var _t = function (name, data) {
+    console.log('t');
     var compile = _.template(templates[name].template);
     templates[name].dom.html(compile(data));
     templates[name].dom.removeClass('template');
