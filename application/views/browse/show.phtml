@@ -18,7 +18,11 @@
 <body>
   {{ include('/partical/nav.phtml') }}
   <section class="main">
-
+    {% for user in hostUsers %}
+    * {{ user.UserName }}
+    {% else %}
+        No user have been found.
+    {% endfor %}
   </section> 
 
     {{ include('/partical/scripts.phtml') }}
