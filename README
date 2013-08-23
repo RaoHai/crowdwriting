@@ -64,6 +64,9 @@ $ wget http://redis.googlecode.com/files/redis-2.6.14.tar.gz
 $ tar xzf redis-2.6.14.tar.gz
 $ cd redis-2.6.14
 $ make
+$ make install
+
+请用sudo redis-server开启redis要不跑不起来
 
 $ git clone https://github.com/nicolasff/phpredis.git
 $ phpize
@@ -75,4 +78,22 @@ php.ini最后一行，加
 extension = redis.so
 
 
+模板使用Twig
+http://twig.sensiolabs.org/
+
+安装方法
+$ sudo apt-get install php-pear
+$ sudo pear channel-discover pear.twig-project.org
+$ sudo pear install twig/Twig
+
+$ git clone git://github.com/fabpot/Twig.git
+
+$ cd Twig/ext/twig
+$ phpize
+$ ./configure
+$ make
+$ sudo make install
+
+php.ini最后加一行
+extension=twig.so
 
