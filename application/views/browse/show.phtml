@@ -33,7 +33,13 @@
         <h3 class='pure'>Hot Chapters</h3>
         <div class="chapters">
            {% for chapter in hotChapter %}
-              {{chapter.ChapterTitle}}
+           <div>
+              <b>{{chapter.ChapterTitle}}</b>
+              <p>
+                {{chapter.ChapterContent}}
+              </p>
+
+            </div>
            {% endfor %}
         </div>
       </div>
