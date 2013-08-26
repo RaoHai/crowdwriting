@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Crowd Writing--{{domain}}</title>
+  <link href="stylesheets/app.css" rel="stylesheet" type="text/css"> 
+  <link href="stylesheets/font-awesome.css" rel="stylesheet" type="text/css"> 
+  <script src="javascripts/vendor/custom.modernizr.js"></script>
+  <script>
+  var require = { baseUrl : "javascripts", deps : [ "write"] };
+  var viewerMode = false;
+  var Category = '{{controller}}';
+  </script>
+  <script src="javascripts/lib/require.js"></script>
+  <style>
+  #wmd-preview{
+    padding: 19px;
+    overflow: auto;
+  }
+  </style>
+</head>
+<body>
+ {{ include('/partical/nav.phtml') }}
+  <div id="wmd-button-bar" style='display:none'></div>
+  <section class="main">
+    <div class="row editor">
+      <div class="columns large-6">
+        <input type="text" value='Untitled Document' id='ChapterTitle'>
+        <textarea class='editor' id='wmd-input'>
+        </textarea>
+      </div>
+      <div class="columns large-6">
+        <div class="preview shadow-box" id='wmd-preview'>
+          <div class="inner" id='previewInner'>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> 
+  <textarea id="md-section-helper" class='editor helper'></textarea>
+  {{ include('/partical/scripts.phtml') }}
+</body>
+</html>

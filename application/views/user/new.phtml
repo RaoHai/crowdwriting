@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <title>Crowd Writing--{$domain}</title>
+  <title>Crowd Writing--{{domain}}</title>
   <link href="/stylesheets/app.css" rel="stylesheet" type="text/css"> 
   <link href="/stylesheets/font-awesome.css" rel="stylesheet" type="text/css"> 
   <script src="/javascripts/vendor/custom.modernizr.js"></script>
@@ -60,8 +60,7 @@
 			<span>__</span>
 		</div>
 	</div>
-
-  {$scripts}
+   {{ include('/partical/scripts.phtml') }}
   <script src='/javascripts/login.js'></script>
 </body>
 </html>

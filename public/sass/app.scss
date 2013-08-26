@@ -7,6 +7,10 @@
 // Comment out this import if you are customizing you imports below
 @import "foundation";
 
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+@import "compass/css3";
+
 // Import specific parts of Foundation by commenting the import "foundation"
 // and uncommenting what you want below. You must uncomment the following if customizing
 
@@ -69,6 +73,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus
 	text-decoration: underline;
 	color: #7e7e7e;
 }
+
 span.shadow{
 	display: block;
 	position: absolute;
@@ -114,6 +119,7 @@ span.shadow{
 		}
 
 		background-image: url(/img/bg.jpg);
+		background-attachment: fixed;
 
 		padding:1.5em 1.5em 0 1.5em;
 		.notice{
@@ -358,9 +364,71 @@ span.shadow{
 section.main{
 	color:#584f4f;
 	background-color: #F8F8F8;
+	.welcome{
+		position: relative;
+		overflow: hidden;
+		height: 400px;
+		text-align: center;
+		padding-top: 100px;
+		img{
+			position: absolute;
+			left: 0;
+			bottom: 0;
+		}
+		h2{
+			position: relative;
+			color:white;
+			@include single-text-shadow;
+		}
+	}
+	h3{
+		font-size: 1.4em;
+		padding-bottom: 15px;
+		margin: 15px 0;
+		border-bottom: 1px solid #69bed7;
+		&.pure{
+			border: none;
+		}
+	}
+	ul.users{
+		list-style: none;
+		li{
+			margin: 12px 0;
+			img{
+				// @include transition;
+				border-radius: 25px;
+				border:5px solid white;
+				&.stranger{
+					border-color: rgba(gray,0.5);
+				}
+				&.friend{
+					border-color: rgba($success-color,0.5);
+				}
+			}
+			a{
+				color:#808080;
+				padding-left: 12px;
+				font-size: 0.9em;
+			}
+			&:hover{
+				img{
+					border-radius: 20px;
+					border:none;
+					@include transform(scale(1.2,1.2));
+					margin: 5px;
+				}
+				a{
+					color:#565656;
+				}
+			}
+		}
+	}
 	.row{
 		max-width: 100%;
 		padding:0 10px;
+		&.full{
+			padding: 0;
+		}
 	}
 	.editor{
 		resize:none;

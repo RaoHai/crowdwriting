@@ -53,7 +53,7 @@ class Active_Record_Abstract{
 		}
 
 		if (isset($conditions)) {
-			$condition = $conditions;
+			$condition = 'WHERE' .$conditions;
 		} 			
 
 		if (isset($limit)) {
@@ -67,7 +67,7 @@ class Active_Record_Abstract{
 		}
 
 
-		$sql = "$queryCommand $queryColumns FROM `$table` WHERE $condition $sortQuery LIMIT $limitQuery;";
+		$sql = "$queryCommand $queryColumns FROM `$table` $condition $sortQuery LIMIT $limitQuery;";
 		return $this->db->cachedQuery('select', $table, $queryColumns, $sql);
 	}
 

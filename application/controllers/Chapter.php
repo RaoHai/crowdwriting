@@ -47,5 +47,11 @@ class ChapterController extends Yaf_Controller_Abstract {
 		$db->
 		# code...*/
 	}
+
+	public function list_hot()
+	{
+		$Chapter = Active_Record::getObject("Chapter");
+		return $Chapter->find('all');
+	}
 }
 ?>

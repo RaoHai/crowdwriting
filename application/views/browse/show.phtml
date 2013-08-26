@@ -17,12 +17,43 @@
 </head>
 <body>
   {{ include('/partical/nav.phtml') }}
-  <section class="main">
-    {% for user in hostUsers %}
-    * {{ user.UserName }}
-    {% else %}
-        No user have been found.
-    {% endfor %}
+  <section class="main"> 
+    <div class="row collapse full">
+      <div class="columns large-12">
+        <div class="welcome">
+          <img src='/img/welcome.jpg'>
+          <h2>EVERYTHING YOU NEED IS</h2>
+          <h2>WRITE</h2>
+          <a class='button success' href='/user/new'>GET STARTED</a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns large-9">
+        <h3 class='pure'>Hot Chapters</h3>
+        <div class="chapters">
+           {% for chapter in hotChapter %}
+              {{chapter.ChapterTitle}}
+           {% endfor %}
+        </div>
+      </div>
+      <div class="columns large-3">
+        <h3>Hot Users</h3>
+        <ul class="users">
+        {% for user in hotUsers %}
+          <li>
+            <figure>
+            <img src="{{ user.avatar }}" class='{{user.relation}}'>
+
+             <a href='/user/{{ user.UserId }}'>{{ user.UserName }}</a>
+            </figure>
+           
+          </li>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+  
   </section> 
 
     {{ include('/partical/scripts.phtml') }}

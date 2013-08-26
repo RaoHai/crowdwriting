@@ -8,10 +8,21 @@ class BrowseController extends Yaf_Controller_Abstract {
 
 	public function showAction()
 	{
-		$User = Active_Record::getObject("User");
-		$hotUsers = $User->find('all','1',"0,30","Temperature");
+		$relations = ['friend','stranger'];
+		$u = new UserController();
+		$c = new ChapterController();
 
-		$this->getView()->assign("hostUsers",$hotUsers);
+		$hotUsers = $u->list_hot();
+		foreach ($hotUsers as $user) {
+			$user->relation = $relations[mt_rand(0,1)];
+			$user->avatar = App_Helper::getInstance()->get_gravatar($user->Email, 40);
+		}
+
+		$hotChapter = $c->list_hot();
+
+		$this->getView()->assign("hotChapter",$hotChapter);
+
+		$this->getView()->assign("hotUsers",$hotUsers);
 		$this->getView()->assign("domain", $_SERVER['SERVER_NAME']);
 	}
 }

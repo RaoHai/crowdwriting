@@ -11,7 +11,7 @@ class UserController extends Yaf_Controller_Abstract {
 		return $salt;
 	}
 
-	private function list_host()
+	public function list_hot()
 	{
 		$User = Active_Record::getObject("User");
 		return $User->find('all','1',"0,30","Temperature");
@@ -43,7 +43,7 @@ class UserController extends Yaf_Controller_Abstract {
 
 	public function hotAction()
 	{
-		$this->getResponse()->setBody(json_encode($this->list_host()));
+		$this->getResponse()->setBody(json_encode($this->list_hot()));
 	}
 
 	// public function randomAction()
