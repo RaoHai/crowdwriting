@@ -24,4 +24,13 @@ class App_Helper {
 	    }
 	    return $url;
 	}
+	public function get_lines($text, $number)
+	{
+		$arr = explode("\n",$text);
+		if (count($arr) < $number) {
+			return $text;
+		} else {
+			return implode("\n",array_slice($arr,0,$number));
+		}
+	}
 }

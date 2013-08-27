@@ -33,7 +33,13 @@
         <h3 class='pure'>Hot Chapters</h3>
         <div class="chapters">
            {% for chapter in hotChapter %}
-              {{chapter.ChapterTitle}}
+           <div class="chapter">
+              <img src="{{ chapter.avatar }}"> <b><a href='/chapter/{{chapter.ChapterId}}'>{{chapter.ChapterTitle}}</a></b> <span class="time">{{chapter.UpdateTime}}</span>
+                <div class="markdown">
+                  {{chapter.Summary}}
+                </div>
+                <span class="right"> <a href='/chapter/{{chapter.ChapterId}}'>READ MORE>> </a></span>
+            </div>
            {% endfor %}
         </div>
       </div>
@@ -57,5 +63,17 @@
   </section> 
 
     {{ include('/partical/scripts.phtml') }}
+    <script type="text/javascript" src="/javascripts/lib/Markdown.Converter.js"></script>
+    <script type="text/javascript">
+      var converter = new Markdown.Converter();
+      $(document).ready(function() {
+        $.each($('.markdown'), function(idx, item) {
+          var text = $(item).html();
+          html = converter.makeHtml(text);
+          $(item).html(html);
+        });
+      });
+      
+   </script>
 </body>
 </html>

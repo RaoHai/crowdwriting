@@ -9,24 +9,20 @@ class ChapterController extends Yaf_Controller_Abstract {
 	{
 		$Chapter = Active_Record::getObject("Chapter");
 		$id = $this->getRequest()->getParam("Id"); 
-
 		$table = $Chapter->find($id);
-		//$Chapter->getFromRequest($this->getRequest());
-		/*$Chapter->ChapterTitle = 'hello';
-		$Chapter->ChapterContent = 'world';
-		$Chapter->UpdateTime = date('Y-m-d H:i:s');
-		$Chapter->Uuid = 123456;
-		$Chapter->UserId = 1;
-		$Chapter->save();*/
-		//$table = $Chapter->find('ChapterTitle',"ChapterId = $id");
-		//$db = ezSQL_DB::getInstance();
-		//$table = $db->query("SELECT * from Chapter where ChapterId = $id");
-		$this->getResponse()->setBody(json_encode($table));
+		if ($this->getRequest()->isXmlHttpRequest()) {
+			$this->getResponse()->setBody(json_encode($table));
+		} else {
+			$this->getView()->assign("domain", $_SERVER['SERVER_NAME']);
+			$this->getView()->assign("Chapter", $table);
+		}
+		
 	}
 	public function createAction()
 	{
 		$Chapter = Active_Record::getObject("Chapter");
 		$Chapter->getFromRequest($_POST);
+		$Chapter->UserId = Yaf_Session::getInstance()->get('user');
 		$Chapter->save();
 		$this->getResponse()->setBody(json_encode($Chapter));
 	}
@@ -51,7 +47,14 @@ class ChapterController extends Yaf_Controller_Abstract {
 	public function list_hot()
 	{
 		$Chapter = Active_Record::getObject("Chapter");
-		return $Chapter->find('all');
+		$User = Active_Record::getObject("User");
+		$Chapter->left_join("UserId",$User,"UserId");
+
+		$arr =  $Chapter->uncached_find('all');
+		foreach ($arr as $c) {
+			$c->Summary = App_Helper::getInstance()->get_lines(rawurldecode($c->ChapterContent), 10);
+		}
+		return $arr;
 	}
 }
 ?>

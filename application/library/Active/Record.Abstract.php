@@ -3,6 +3,7 @@ class Active_Record_Abstract{
 	protected $type ;
 	protected $db;
 	protected $instance;
+	protected $joins;
 	public function __construct($instanceName)
 	{
 		$this->type = new stdClass();
@@ -10,6 +11,10 @@ class Active_Record_Abstract{
 		$this->instance = $instanceName;
 	}
 
+	public function getInstance()
+	{
+		return $this->instance;
+	}
 	public function typeMap($key, $value)
 	{
 		$this->type->$key = $value;
@@ -18,6 +23,10 @@ class Active_Record_Abstract{
 	public function getMap()
 	{
 		return $this->type;
+	}
+	public function left_join($foreignkey,$target,$reference)
+	{
+		$this->joins = array("foreignkey"=>$foreignkey,"target"=>$target,"reference"=>$reference);
 	}
 
 	public function getFromRequest($PUT)
@@ -31,12 +40,17 @@ class Active_Record_Abstract{
 			}
 		}
 	}
-	public function find($columns, $conditions = NULL, $limit = NULL, $sort = NULL)
+	public function uncached_find($columns, $conditions = NULL, $limit = NULL, $sort = NULL)
+	{
+		return $this->find($columns, $conditions, $limit, $sort, 0);
+	}
+	public function find($columns, $conditions = NULL, $limit = NULL, $sort = NULL,$cached = 1)
 	{ 
 		$table = $this->instance;
 		$id = $table.'Id';
 		$queryCommand = 'select';
 		$queryColumns = '';
+		$joins = '';
 		if (is_numeric($columns)) {
 			$queryColumns = '*';
 			$sql = "$queryCommand $queryColumns from `$table` where `$table`.`$id` = $columns";
@@ -53,7 +67,7 @@ class Active_Record_Abstract{
 		}
 
 		if (isset($conditions)) {
-			$condition = 'WHERE' .$conditions;
+			$condition = ' WHERE ' .$conditions;
 		} 			
 
 		if (isset($limit)) {
@@ -66,9 +80,19 @@ class Active_Record_Abstract{
 			$sortQuery = "ORDER BY $sort";
 		}
 
+		if (isset($this->joins)) {
+			$foreignkey = $this->joins['foreignkey'];
+			$target = $this->joins['target']->getInstance();
+			$reference = $this->joins['reference'];
+			$joins = "LEFT JOIN $target on `$table`.`$foreignkey` = `$target`.`$reference`";
+		}
 
-		$sql = "$queryCommand $queryColumns FROM `$table` $condition $sortQuery LIMIT $limitQuery;";
-		return $this->db->cachedQuery('select', $table, $queryColumns, $sql);
+		$sql = "$queryCommand $queryColumns FROM `$table` $joins $condition $sortQuery LIMIT $limitQuery;";
+		if ($cached == 1) {
+			return $this->db->cachedQuery('select', $table, $queryColumns, $sql);
+		} else {
+			return $this->db->query($sql);
+		}
 	}
 
 	public function save()

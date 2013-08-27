@@ -105,7 +105,7 @@ define([
 		}
 		
 		// Recreate the editor
-		if (fileDesc.Id && fileDesc.Id !== undefined) {
+		if (fileDesc.Id && fileDesc.Id !== undefined && fileDesc.Id !== 'undefined') {
 			$.ajax({ 
 				url : "Chapter/" + fileDesc.Id,
 				timeout : 2000
@@ -163,7 +163,7 @@ define([
 		localStorage[fileIndex + ".content"] = content;
 		localStorage[fileIndex + ".sync"] = sync;
 		localStorage[fileIndex + ".publish"] = ";";
-		
+		localStorage[fileIndex + ".Id"] = ";";	
 		// Create the file descriptor
 		var fileDesc = new FileDescriptor(fileIndex, title, syncLocations);
 		

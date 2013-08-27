@@ -9,8 +9,7 @@ define([
 
   $ul.find(categoryName).addClass('active');
 
-
-  if (!(category in ['Index', 'Write'])) {
+  if ($.inArray(category, ['Index', 'Write']) == -1) {
     $('li.actions').hide();
   };
 

@@ -13,6 +13,7 @@ class LoginController extends Yaf_Controller_Abstract {
 		$result = $result[0];
 		$salt = $result->Salt;
 		$hashedpass = sha1($_POST['password'].$salt);
+		
 		if ($hashedpass == $result->Password) {
 			Yaf_Session::getInstance()->set('error', '');
 			Yaf_Session::getInstance()->set('user', $result->UserId);

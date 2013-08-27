@@ -19,7 +19,9 @@ class BrowseController extends Yaf_Controller_Abstract {
 		}
 
 		$hotChapter = $c->list_hot();
-
+		foreach ($hotChapter as $chapter) {
+			$chapter->avatar = App_Helper::getInstance()->get_gravatar($chapter->Email, 40);
+		}
 		$this->getView()->assign("hotChapter",$hotChapter);
 
 		$this->getView()->assign("hotUsers",$hotUsers);

@@ -6,8 +6,9 @@
 		static protected $_instance = NULL;
 		static protected $tableList = NULL;
 
-		private function __construct(){
-		/*
+		private function __construct()
+		{
+			/*
 			select
 			    concat(table_name, '.', column_name) as 'foreign key',  
 			    concat(referenced_table_name, '.', referenced_column_name) as 'references'
@@ -15,10 +16,11 @@
 			    information_schema.key_column_usage
 			where
 			    referenced_table_name is not null;
-		*/
+			*/
 			$db = ezSQL_DB::getInstance();
 			$tableList = array();
 			$redis = Redis_Cache::getInstance();
+			/* Generater CRM Object */
 			if (!$redis->get('_table_list')) {
 				$tables = $db->query('SHOW TABLES');
 				$dbName = $db->getDbName();
@@ -34,6 +36,8 @@
 				$tableList = unserialize($redis->get('_table_list'));
 			}
 			self::$tableList = $tableList;
+
+
 
 		}
 		static public function getObject($objectName) 
