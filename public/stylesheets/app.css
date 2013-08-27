@@ -7593,28 +7593,29 @@ section.main .welcome {
 }
 /* line 373, ../sass/app.scss */
 section.main .welcome img {
+  width: 100%;
   position: absolute;
   left: 0;
   bottom: 0;
 }
-/* line 378, ../sass/app.scss */
+/* line 379, ../sass/app.scss */
 section.main .welcome h2 {
   position: relative;
   color: white;
   text-shadow: 0px 0px 1px #aaaaaa;
 }
-/* line 384, ../sass/app.scss */
+/* line 385, ../sass/app.scss */
 section.main h3 {
   font-size: 1.4em;
   padding-bottom: 15px;
   margin: 15px 0;
   border-bottom: 1px solid #69bed7;
 }
-/* line 389, ../sass/app.scss */
+/* line 390, ../sass/app.scss */
 section.main h3.pure {
   border: none;
 }
-/* line 393, ../sass/app.scss */
+/* line 394, ../sass/app.scss */
 section.main .chapter {
   float: left;
   border: 1px solid #ddd;
@@ -7627,63 +7628,63 @@ section.main .chapter {
   padding: 1em;
   margin: 5px;
 }
-/* line 402, ../sass/app.scss */
+/* line 403, ../sass/app.scss */
 section.main .chapter .time {
   float: right;
   font-size: 0.8em;
 }
-/* line 406, ../sass/app.scss */
+/* line 407, ../sass/app.scss */
 section.main .chapter img {
   border-radius: 40px;
 }
-/* line 409, ../sass/app.scss */
+/* line 410, ../sass/app.scss */
 section.main .chapter span.right {
   color: gray;
   font-size: 0.8em;
   margin-top: 1em;
 }
-/* line 414, ../sass/app.scss */
+/* line 415, ../sass/app.scss */
 section.main .chapter .markdown {
   padding-top: 1em;
 }
-/* line 416, ../sass/app.scss */
+/* line 417, ../sass/app.scss */
 section.main .chapter .markdown h1, section.main .chapter .markdown h2, section.main .chapter .markdown h3, section.main .chapter .markdown p, section.main .chapter .markdown ul, section.main .chapter .markdown li {
   margin: 0 0 0.4em 0;
   padding: 0;
   font-size: 0.9em;
 }
-/* line 421, ../sass/app.scss */
+/* line 422, ../sass/app.scss */
 section.main .chapter .markdown ul, section.main .chapter .markdown ul > li {
   list-style: none;
 }
-/* line 426, ../sass/app.scss */
+/* line 427, ../sass/app.scss */
 section.main ul.users {
   list-style: none;
 }
-/* line 428, ../sass/app.scss */
+/* line 429, ../sass/app.scss */
 section.main ul.users li {
   margin: 12px 0;
 }
-/* line 430, ../sass/app.scss */
+/* line 431, ../sass/app.scss */
 section.main ul.users li img {
   border-radius: 25px;
   border: 5px solid white;
 }
-/* line 434, ../sass/app.scss */
+/* line 435, ../sass/app.scss */
 section.main ul.users li img.stranger {
   border-color: rgba(128, 128, 128, 0.5);
 }
-/* line 437, ../sass/app.scss */
+/* line 438, ../sass/app.scss */
 section.main ul.users li img.friend {
   border-color: rgba(93, 164, 35, 0.5);
 }
-/* line 441, ../sass/app.scss */
+/* line 442, ../sass/app.scss */
 section.main ul.users li a {
   color: #808080;
   padding-left: 12px;
   font-size: 0.9em;
 }
-/* line 447, ../sass/app.scss */
+/* line 448, ../sass/app.scss */
 section.main ul.users li:hover img {
   border-radius: 20px;
   border: none;
@@ -7694,25 +7695,25 @@ section.main ul.users li:hover img {
   transform: scale(1.2, 1.2);
   margin: 5px;
 }
-/* line 453, ../sass/app.scss */
+/* line 454, ../sass/app.scss */
 section.main ul.users li:hover a {
   color: #565656;
 }
-/* line 459, ../sass/app.scss */
+/* line 460, ../sass/app.scss */
 section.main .row {
   max-width: 100%;
   padding: 0 10px;
 }
-/* line 462, ../sass/app.scss */
+/* line 463, ../sass/app.scss */
 section.main .row.full {
   padding: 0;
 }
-/* line 466, ../sass/app.scss */
+/* line 467, ../sass/app.scss */
 section.main .editor {
   resize: none;
   line-height: 155%;
 }
-/* line 471, ../sass/app.scss */
+/* line 472, ../sass/app.scss */
 section.main .preview {
   background-color: white;
   overflow-y: scroll;
@@ -7720,53 +7721,53 @@ section.main .preview {
   font-family: Arvo, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   position: relative;
 }
-/* line 478, ../sass/app.scss */
+/* line 479, ../sass/app.scss */
 section.main .preview .inner {
   position: relative;
 }
-/* line 480, ../sass/app.scss */
+/* line 481, ../sass/app.scss */
 section.main .preview .inner * {
   position: relative;
 }
-/* line 484, ../sass/app.scss */
+/* line 485, ../sass/app.scss */
 section.main .preview h1 {
   font-size: 2em;
 }
-/* line 487, ../sass/app.scss */
+/* line 488, ../sass/app.scss */
 section.main .preview h2 {
   font-size: 1.5em;
 }
 
-/* line 492, ../sass/app.scss */
+/* line 493, ../sass/app.scss */
 .helper {
   position: absolute;
   height: 0;
   top: -100px;
 }
 
-/* line 499, ../sass/app.scss */
+/* line 500, ../sass/app.scss */
 .login-panel {
   width: 100%;
   margin-top: 20%;
   background-color: #F8F8F8;
 }
-/* line 503, ../sass/app.scss */
+/* line 504, ../sass/app.scss */
 .login-panel h3 {
   color: #444444;
   margin-bottom: 25px;
 }
-/* line 507, ../sass/app.scss */
+/* line 508, ../sass/app.scss */
 .login-panel .logins {
   margin: 10px 40px;
   text-align: center;
   height: 120px;
 }
-/* line 512, ../sass/app.scss */
+/* line 513, ../sass/app.scss */
 .login-panel .join {
   font-weight: normal;
   margin: 0 20px;
 }
-/* line 516, ../sass/app.scss */
+/* line 517, ../sass/app.scss */
 .login-panel .footline {
   height: 60px;
   margin: 2px;
@@ -7775,17 +7776,17 @@ section.main .preview h2 {
   border-bottom: 2px solid #f8f8f8;
   font-weight: normal;
 }
-/* line 523, ../sass/app.scss */
+/* line 524, ../sass/app.scss */
 .login-panel .footline a {
   font-weight: bold;
 }
-/* line 527, ../sass/app.scss */
+/* line 528, ../sass/app.scss */
 .login-panel .recommand {
   margin: 30px 60px;
   border-top: 1px solid #ccc;
   text-align: center;
 }
-/* line 531, ../sass/app.scss */
+/* line 532, ../sass/app.scss */
 .login-panel .recommand span {
   background-color: #f8f8f8;
   position: absolute;
@@ -7795,20 +7796,20 @@ section.main .preview h2 {
   top: 20px;
   padding: 0 10px;
 }
-/* line 543, ../sass/app.scss */
+/* line 544, ../sass/app.scss */
 .login-panel .form form {
   padding: 0px 30px;
   border-right: 2px solid #dbdbdb;
 }
-/* line 546, ../sass/app.scss */
+/* line 547, ../sass/app.scss */
 .login-panel .form form input {
   margin-bottom: 25px;
 }
-/* line 552, ../sass/app.scss */
+/* line 553, ../sass/app.scss */
 .login-panel .title {
   height: 40px;
 }
-/* line 555, ../sass/app.scss */
+/* line 556, ../sass/app.scss */
 .login-panel .title .close {
   display: block;
   width: 30px;
@@ -7821,11 +7822,11 @@ section.main .preview h2 {
   float: right;
   background-color: black;
 }
-/* line 567, ../sass/app.scss */
+/* line 568, ../sass/app.scss */
 .login-panel .title .close a {
   color: white;
 }
-/* line 570, ../sass/app.scss */
+/* line 571, ../sass/app.scss */
 .login-panel .title .close:hover {
   background-color: #3e3e3e;
 }
