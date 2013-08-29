@@ -51,10 +51,22 @@ class Active_Record_Abstract{
 		$queryCommand = 'select';
 		$queryColumns = '';
 		$joins = '';
+
+		if (isset($this->joins)) {
+			$foreignkey = $this->joins['foreignkey'];
+			$target = $this->joins['target']->getInstance();
+			$reference = $this->joins['reference'];
+			$joins = "LEFT JOIN $target on `$table`.`$foreignkey` = `$target`.`$reference`";
+		}
+
 		if (is_numeric($columns)) {
 			$queryColumns = '*';
-			$sql = "$queryCommand $queryColumns from `$table` where `$table`.`$id` = $columns";
-			return $this->db->cachedQuery('select', $table, $columns, $sql);
+			$sql = "$queryCommand $queryColumns from `$table` $joins where `$table`.`$id` = $columns";
+			if ($cached == 1) {
+				return $this->db->cachedQuery('select', $table, $columns, $sql);
+			} else {
+				return $this->db->query($sql);
+			}
 		}
 
 		if ($columns == 'all') {
@@ -80,12 +92,7 @@ class Active_Record_Abstract{
 			$sortQuery = "ORDER BY $sort";
 		}
 
-		if (isset($this->joins)) {
-			$foreignkey = $this->joins['foreignkey'];
-			$target = $this->joins['target']->getInstance();
-			$reference = $this->joins['reference'];
-			$joins = "LEFT JOIN $target on `$table`.`$foreignkey` = `$target`.`$reference`";
-		}
+
 
 		$sql = "$queryCommand $queryColumns FROM `$table` $joins $condition $sortQuery LIMIT $limitQuery;";
 		if ($cached == 1) {

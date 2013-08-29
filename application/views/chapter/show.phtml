@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Crowd Writing--{{domain}}</title>
+	<link href="/stylesheets/chapter.css" rel="stylesheet" type="text/css"> 
+	<link href="/stylesheets/font-awesome.css" rel="stylesheet" type="text/css"> 
+	<script src="/javascripts/vendor/custom.modernizr.js"></script>
+  <script>
+  var require = { baseUrl : "/javascripts", deps : [ "main"] };
+  var Category = '{{controller}}';
+  </script>
+  <script src="/javascripts/lib/require.js"></script>
+</head>
+<body>
+	<nav class="site-logo">
+		<a href='/'><img src="/img/logo.png"></a>
+	</nav>
+	<article class="user">
+		<nav class="top-bar">
+			<section class="top-bar-section">
+			<ul class="right">
+		      <li>
+		        <a class='avatar template' data-template='logined'>
+		          <script type="text/template">
+		            <% if (login) { %>
+		            <span>Ruly</span>
+		            <img src='/img/avatar.jpg'>
+		            <span><i class="icon-angle-down"></i></span>
+		            <% } else { %>
+		            <span><i class="icon-signin"></i> Log In</span>
+		            <% } %>
+		          </script>
+		        </a>
+
+		        <ul class="action-dropdown template" data-template='logined-drop'>
+		          <script type="text/template">
+		            <span class="arrow"></span>
+		            <li class='top'>
+		              <img src='/img/avatar1.jpg'>
+		              <span class="user-name">Ruly</span>
+		              <span class="user-email">surgesoft@gmail.com</span>
+		            </li>
+		            <li class='normal'><a href='#'><i class="icon-info"></i>Manager Profile</a></li>
+		            <li class='normal'><a href='#'><i class="icon-envelope"></i>Mail</a></li>
+		            <li class="split"></li>
+		            <li class='normal'><a href='#'>Invite someone to CW</a></li>
+		            <li class="split"></li>
+		            <li class='normal'><a href='#'><i class="icon-question"></i>Help</a></li>
+		            <li class="split"></li>
+		            <li class='normal'><a href='/logout'><i class="icon-signout"></i>Log Out</a></li>
+		            <span class="shadow shadow-left"></span>
+		            <span class="shadow shadow-right"></span>
+		            <span class="shadow shadow-bottom"></span>
+		          </script>
+		        </ul>
+		      </li>
+		    </ul>
+		</section>
+		</nav>
+	</article>
+	<div class="container">
+		<div class="surface">
+			<div class="surface-inner">
+				<article>
+
+					<section class="post-page-wrapper">
+						<div class="post-page-inner">
+							<div class="author">
+								{% for chapter in Chapter %}
+								 <img src="{{ chapter.avatar }}" >
+								 <a href='/user/{{chapter.UserId}}'>{{ chapter.UserName }}</a>
+								 <div class="publish-time">
+								 	<strong>Publiced</strong>
+								 	<p>{{chapter.CreateTime}}</p>
+								 	<strong>Updated</strong>
+								 	<p>{{chapter.UpdateTime}}</p>
+								 </div>
+
+								{% endfor %}
+							</div>
+							<div class="post-field">
+								{% for chapter in Chapter %}
+								<h1>{{chapter.ChapterTitle}}</h1>
+								<span class="time">{{chapter.UpdateTime}}</span>
+								<div class="body markdown">
+									{{chapter.ChapterContent}}
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+					</section>
+					<footer>
+
+					</footer>
+				</article>
+
+			</div>
+		</div>
+	</div>
+	{{ include('/partical/scripts.phtml') }}
+	<script type="text/javascript" src="/javascripts/lib/Markdown.Converter.js"></script>
+	<script type="text/javascript">
+	var converter = new Markdown.Converter();
+	$(document).ready(function() {
+		$.each($('.markdown'), function(idx, item) {
+			var text = $(item).html();
+			html = converter.makeHtml(text);
+			$(item).html(html);
+		});
+	});
+
+	</script>
+</body>
+</html>

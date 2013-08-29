@@ -8,8 +8,18 @@ class ChapterController extends Yaf_Controller_Abstract {
 	public function showAction()
 	{
 		$Chapter = Active_Record::getObject("Chapter");
+		$User = Active_Record::getObject("User");
+		$Chapter->left_join("UserId",$User,"UserId");
+		
 		$id = $this->getRequest()->getParam("Id"); 
-		$table = $Chapter->find($id);
+		$table = $Chapter->uncached_find($id);
+
+		foreach ($table as $item) {
+			$item->ChapterContent = rawurldecode($item->ChapterContent);
+			$item->avatar = App_Helper::getInstance()->get_gravatar($item->Email, 70);
+			$item->CreateTime = App_Helper::getInstance()->get_chinese_time($item->CreateTime);
+			$item->UpdateTime = App_Helper::getInstance()->get_chinese_time($item->UpdateTime);
+		}
 		if ($this->getRequest()->isXmlHttpRequest()) {
 			$this->getResponse()->setBody(json_encode($table));
 		} else {

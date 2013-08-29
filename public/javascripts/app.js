@@ -33,7 +33,19 @@ define([
     templates[name].dom.html(compile(data));
     templates[name].dom.removeClass('template');
   };
+  $('.avatar').click(function (e) {
+      $('.action-dropdown').fadeToggle(100);
+      e.stopPropagation();
+    });
 
+    $('.action-dropdown').click(function (e) {
+      e.stopPropagation();
+    });
+
+    $(document).click(function () {
+      $('.action-dropdown').hide();
+    });
+    
   var app = {
     onCheckUser: function (user) {
       if (user === 0) {

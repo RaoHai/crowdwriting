@@ -33,4 +33,10 @@ class App_Helper {
 			return implode("\n",array_slice($arr,0,$number));
 		}
 	}
+	public function get_chinese_time($timeStr)
+	{
+		$timestamp = strtotime($timeStr);
+		return Date("Y年m月d日",$timestamp);
+
+	}
 }

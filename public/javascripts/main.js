@@ -33,7 +33,7 @@ require([
 ], function ($, app) {
   function checkLogin() {
     $.ajax({ 
-      url : "session",
+      url : "/session",
       timeout : 1000, dataType : "json"
     }).done(function(value) {
       app.onCheckUser(value);

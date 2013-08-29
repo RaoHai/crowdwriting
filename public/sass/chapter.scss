@@ -1,0 +1,173 @@
+// Global Foundation Settings
+@import "settings";
+
+// Comment out this import if you don't want to use normalize
+@import "normalize";
+
+// Comment out this import if you are customizing you imports below
+@import "foundation";
+
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+@import "compass/css3";
+
+
+@import "global";
+
+html{
+	height: 100%;
+}
+body{
+	background: white;
+	height: 100%;
+	.container{
+		height: 100%;
+	}
+	.surface{
+		position: absolute;
+		display: block;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		.surface-inner{
+			position: relative;
+			height: 100%;
+			overflow: auto;
+
+			&:after{
+				clear: both;
+			}
+		}
+	}
+
+	article.user{
+		position: absolute;
+		right: 15px;
+		top: 15px;
+		z-index: 1000;
+		.top-bar{
+			padding: 0;
+			height: 45px;
+			ul.right{
+				li{
+					margin-right: 0;
+				}
+			}
+		}
+	}
+	article{
+		position: relative;
+		&:after{
+			clear: both;
+			content: " ";
+		}
+	}
+	.site-logo{
+		z-index: 1000;
+		position: absolute;
+		left: 10px;
+		top: 10px;
+		padding: 4px;
+		width: 40px;
+		height: 40px;
+		background-color: #f8f8f8;
+		@include box-shadow(rgba(0,0,0,0.2) 0 0 3px 1px);
+	}
+	footer{
+		position: relative;
+	}	
+	.post-page-wrapper{
+		margin-top: 0;
+		padding-top: 120px;
+		
+		.post-page-inner{
+			max-width: 700px;
+			margin: 0 auto;
+			h1{
+				margin-bottom: 0.3em;
+			}
+			span.time{
+				display: block;
+				width: 100%;
+				margin-bottom: 1em;
+				color:#b3b3b1;
+			}
+			.author{
+				position: relative;
+				width: 160px;
+				margin-left: -230px;
+				float: left;
+				text-align: right;
+				img{
+					width: 70px;
+					height: 70px;
+					border-radius: 70px;
+					margin-bottom: 10px;
+				}
+				a{
+					color:#333332;
+					line-height: 1.2;
+					font-weight: bold;
+					&:hover{
+						color:#5ebbc2;
+					}
+				}
+				.publish-time{
+					padding: 0;
+					padding-top: 10px;
+					margin-top: 0;
+					position: relative;
+					color:#666665;
+					font-size: 14px;
+					margin-top: 40px;
+
+					&:before{
+						content: '';
+						width: 40px;
+						height: 1px;
+						background: #dededc;
+						position: absolute;
+						top: 0;
+						right: 0;
+					}
+					strong{
+						color:#333332;
+						font-size: 14px;
+					}
+				}
+
+			}
+			.body{
+				h1{
+					margin:0.1em 0 1.6em 0;
+					font-size: 2em;
+				}
+				h2{
+					margin: 0.1em 0 1.6em 0;
+					font-size: 1.6em;
+				}
+				h3{
+					margin: 0.1em 0 1.5em 0;
+					font-size: 1.2em;
+				}
+				h4{
+					font-size: 1em;
+				}
+				span.time{
+					float: right;
+					margin: 0.6em 0;
+				}
+				p, pre{
+					font-size: 1em;
+					margin-bottom: 1.5em;
+				}
+				ul{
+					list-style: none;
+				}
+			}
+
+
+		}
+	}
+}

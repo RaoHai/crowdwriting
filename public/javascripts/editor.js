@@ -43,19 +43,19 @@ define([
     fnResizeEditor();
     fnEvents();
 
-    $(document).foundation();
-    $('.avatar').click(function (e) {
-      $('.action-dropdown').fadeToggle(100);
-      e.stopPropagation();
-    });
+ 
+    // $('.avatar').click(function (e) {
+    //   $('.action-dropdown').fadeToggle(100);
+    //   e.stopPropagation();
+    // });
 
-    $('.action-dropdown').click(function (e) {
-      e.stopPropagation();
-    });
+    // $('.action-dropdown').click(function (e) {
+    //   e.stopPropagation();
+    // });
 
-    $(document).click(function () {
-      $('.action-dropdown').hide();
-    });
+    // $(document).click(function () {
+    //   $('.action-dropdown').hide();
+    // });
   };
 
   fnEvents = function () {
