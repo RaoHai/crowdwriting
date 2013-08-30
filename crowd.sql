@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 27, 2013 at 05:59 PM
+-- Generation Time: Aug 30, 2013 at 05:37 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.9-4ubuntu2.2
 
@@ -53,6 +53,21 @@ INSERT INTO `Chapter` (`ChapterId`, `ChapterTitle`, `ChapterContent`, `CreateTim
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Comment`
+--
+
+CREATE TABLE IF NOT EXISTS `Comment` (
+  `CommentId` int(10) NOT NULL,
+  `UserId` int(10) NOT NULL,
+  `CreateTime` datetime NOT NULL,
+  `CommentText` mediumtext NOT NULL,
+  PRIMARY KEY (`CommentId`),
+  KEY `UserId` (`UserId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `User`
 --
 
@@ -95,6 +110,12 @@ INSERT INTO `User` (`UserId`, `UserName`, `Email`, `Password`, `Salt`, `CreateTi
 --
 ALTER TABLE `Chapter`
   ADD CONSTRAINT `Chapter_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `User` (`UserId`);
+
+--
+-- Constraints for table `Comment`
+--
+ALTER TABLE `Comment`
+  ADD CONSTRAINT `Comment_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `User` (`UserId`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
