@@ -112,6 +112,7 @@ body{
 				max-width: 700px;
 				margin: auto;
 				margin-top: 40px;
+				padding-bottom: 100px;
 				.comment-body{
 					position: relative;
 					.comment-user{
@@ -131,14 +132,24 @@ body{
 							left: 55px;
 							width: 20px;
 							height: 20px;
-							clip: rect(1px 19px 28px 0);
+							clip: rect(2px 18px 28px 0);
 							background-color: white;
 							@include transform(rotate(45deg) translate(5px,-5px));
 							border:1px solid #efefef;
 
 						}
+						span.signature{
+							float: right;
+							position: absolute;
+							right: 1px;
+							bottom: 1px;
+							a{
+								font-size: 14px;
+								color:gray;
+							}
+						}
 						margin-left: 70px;
-						padding: 10px;
+						padding: 15px;
 						background-color: white;
 						@include box-shadow(rgba(0,0,0,0.2) 2px 2px 3px -1px);
 						border:1px solid #efefef;
@@ -241,7 +252,7 @@ body{
 						border-radius: 4px;
 					}
 					.vote-arrow{
-						left: 0;
+						left: 1px;
 						top: 50%;
 						
 						position: absolute;
