@@ -50,7 +50,43 @@
 									{{chapter.ChapterContent}}
 								</div>
 								{% endfor %}
+								
+								<div class="recommand">
+									<div class="before"></div>
+									<button class='medium success small-round'><i class="icon-ok-circle"></i> Recommanded</button>
+									<div class="recommand-votes">
+										<div class="vote-inner">
+											14
+										</div>
+										<div class="vote-arrow"></div>
+									</div>
+									<div class="clf"></div>
+								</div>
+								
+								
+
 							</div>
+						</div>
+						<div class="post-comments">
+							<div class="header">
+								<span>Comments</span>
+							</div>
+							<div class="comment-list">
+								{% for comment in Comments %}
+								<div class="comment-body">
+									<div class="comment-user">
+										<img src='{{comment.avatar}}' >
+									</div>
+									<div class="comment-text">
+										<div class="arrow"></div>
+										{{comment.CommentText}}
+									</div>
+								</div>
+								{% else %}
+									<div class="empty"></div>
+								{% endfor %}
+							</div>
+
 						</div>
 					</section>
 					<footer>

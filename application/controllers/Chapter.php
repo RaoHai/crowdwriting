@@ -9,22 +9,30 @@ class ChapterController extends Yaf_Controller_Abstract {
 	{
 		$Chapter = Active_Record::getObject("Chapter");
 		$User = Active_Record::getObject("User");
+		$Comment = Active_Record::getObject("Comment");
+
 		$Chapter->left_join("UserId",$User,"UserId");
-		
+		$Comment->left_join("UserId",$User,"UserId");
+
 		$id = $this->getRequest()->getParam("Id"); 
 		$table = $Chapter->uncached_find($id);
 
+		$comments = $Comment->find("all","ChapterId = $id");
 		foreach ($table as $item) {
 			$item->ChapterContent = rawurldecode($item->ChapterContent);
 			$item->avatar = App_Helper::getInstance()->get_gravatar($item->Email, 70);
 			$item->CreateTime = App_Helper::getInstance()->get_chinese_time($item->CreateTime);
 			$item->UpdateTime = App_Helper::getInstance()->get_chinese_time($item->UpdateTime);
 		}
+		foreach ($comments as $comment) {
+			$comment->avatar =  App_Helper::getInstance()->get_gravatar($comment->Email, 40);
+		}
 		if ($this->getRequest()->isXmlHttpRequest()) {
 			$this->getResponse()->setBody(json_encode($table));
 		} else {
 			$this->getView()->assign("domain", $_SERVER['SERVER_NAME']);
 			$this->getView()->assign("Chapter", $table);
+			$this->getView()->assign("Comments",$comments);
 		}
 		
 	}

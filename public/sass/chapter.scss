@@ -80,7 +80,73 @@ body{
 	.post-page-wrapper{
 		margin-top: 0;
 		padding-top: 120px;
-		
+			
+		.post-comments{
+			position: relative;
+			margin-top: 40px;
+			background-color: #f9f9f7;
+			width: 100%;
+			border-top: 1px solid #dededc;
+			.header{
+				width: 100%;
+				position: absolute;
+				top: -19px;
+				height: 34px;
+				text-align: center;
+				span{
+					display: inline-block;
+					height: 34px;
+					line-height: 32px;
+					padding: 0 13px;
+					background: #fff;
+					font-size: 12px;
+					font-weight: normal;
+					letter-spacing: .2em;
+					text-transform: uppercase;
+					text-align: center;
+					color: #b3b3b1;
+					border: 1px solid #dededc;
+				}
+			}
+			.comment-list{
+				max-width: 700px;
+				margin: auto;
+				margin-top: 40px;
+				.comment-body{
+					position: relative;
+					.comment-user{
+						position: absolute;
+						width: 40px;
+						left: 0;
+						top: 0;
+						img{
+							border-radius: 40px;
+						}
+					}
+					.comment-text{
+						.arrow{
+							float: left;
+							position: absolute;
+							top:4px;
+							left: 55px;
+							width: 20px;
+							height: 20px;
+							clip: rect(1px 19px 28px 0);
+							background-color: white;
+							@include transform(rotate(45deg) translate(5px,-5px));
+							border:1px solid #efefef;
+
+						}
+						margin-left: 70px;
+						padding: 10px;
+						background-color: white;
+						@include box-shadow(rgba(0,0,0,0.2) 2px 2px 3px -1px);
+						border:1px solid #efefef;
+						font-size: 14px;
+					}
+				}
+			}
+		}
 		.post-page-inner{
 			max-width: 700px;
 			margin: 0 auto;
@@ -138,7 +204,60 @@ body{
 				}
 
 			}
+			span.comments{
+				display: block;
+				margin: 0 300px 0 0;
+				border-bottom: 2px solid $hover-color;
+			}
+			.recommand{
+				position: relative;
+				.before{
+					content: '';
+					width: 40px;
+					height: 2px;
+					background: #dededc;
+					position: absolute;
+					top: -30px;
+					left: 0;
+					margin-bottom: 20px;
+				}
+				.small-round{
+					font-size: 14px;
+					border-radius: 3px;
+					@include box-shadow(white 0 0 0 0);
+				}
+				button{
+					float: left;
+				}
+				.recommand-votes{
+					position: relative;
+					float: left;
+					padding-left: 11px;
+					.vote-inner{
+						padding :12px 10px 11px;
+						font-size: 12px;
+						min-width: 17px;
+						border:1px solid #dededc;
+						border-radius: 4px;
+					}
+					.vote-arrow{
+						left: 0;
+						top: 50%;
+						
+						position: absolute;
+						border:1px solid #dededc;
+						@include transform(rotate(45deg) translate(5px,-5px));
+						background-color: white;
+						margin-top: -5px;
+						width: 8px;
+						height: 8px;
+						clip: rect(1px 7px 18px 0);
+					}
+				}
+			}
+
 			.body{
+				
 				h1{
 					margin:0.1em 0 1.6em 0;
 					font-size: 2em;

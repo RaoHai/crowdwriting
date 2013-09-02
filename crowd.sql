@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 30, 2013 at 05:37 PM
+-- Generation Time: Sep 02, 2013 at 06:07 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.9-4ubuntu2.2
 
@@ -57,13 +57,22 @@ INSERT INTO `Chapter` (`ChapterId`, `ChapterTitle`, `ChapterContent`, `CreateTim
 --
 
 CREATE TABLE IF NOT EXISTS `Comment` (
-  `CommentId` int(10) NOT NULL,
+  `CommentId` int(10) NOT NULL AUTO_INCREMENT,
   `UserId` int(10) NOT NULL,
+  `ChapterId` int(10) NOT NULL,
   `CreateTime` datetime NOT NULL,
   `CommentText` mediumtext NOT NULL,
   PRIMARY KEY (`CommentId`),
-  KEY `UserId` (`UserId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `UserId` (`UserId`),
+  KEY `ChapterId` (`ChapterId`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `Comment`
+--
+
+INSERT INTO `Comment` (`CommentId`, `UserId`, `ChapterId`, `CreateTime`, `CommentText`) VALUES
+(1, 1, 26, '2013-09-02 00:00:00', 'Test Comment');
 
 -- --------------------------------------------------------
 
@@ -115,7 +124,8 @@ ALTER TABLE `Chapter`
 -- Constraints for table `Comment`
 --
 ALTER TABLE `Comment`
-  ADD CONSTRAINT `Comment_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `User` (`UserId`);
+  ADD CONSTRAINT `Comment_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `User` (`UserId`),
+  ADD CONSTRAINT `Comment_ibfk_2` FOREIGN KEY (`ChapterId`) REFERENCES `Chapter` (`ChapterId`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
