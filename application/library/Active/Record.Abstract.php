@@ -124,6 +124,7 @@ class Active_Record_Abstract{
 			$insert = join(',',$insertColumns);
 			$vals = join('\',\'',$insertValues);
 			$sql = $savecolumns.$insert.") VALUES('".$vals."');";
+			var_dump($sql);
 			$this->db->query($sql);
 			$this->id = $this->$primary = mysql_insert_id();
 	}

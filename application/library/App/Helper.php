@@ -12,6 +12,7 @@ class App_Helper {
 		}
 		return self::$_instance;
 	}
+
 	public function get_gravatar( $email, $s = 80, $d = 'mm', $r = 'g', $img = false, $atts = array() ) {
 	    $url = 'http://www.gravatar.com/avatar/';
 	    $url .= md5( strtolower( trim( $email ) ) );
@@ -26,6 +27,7 @@ class App_Helper {
 	}
 	public function get_lines($text, $number)
 	{
+		$text = mb_substr($text,0,1024)."...";
 		$arr = explode("\n",$text);
 		if (count($arr) < $number) {
 			return $text;
@@ -38,5 +40,25 @@ class App_Helper {
 		$timestamp = strtotime($timeStr);
 		return Date("Y年m月d日",$timestamp);
 
+	}
+	public function generater_token($name)
+	{
+		$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';  
+		$salt = '';
+		for ($i=0; $i < 16; $i++) { 
+			$salt .= substr($chars, mt_rand(0, strlen($chars) - 1), 1);
+		}
+
+		Yaf_Session::getInstance()->set("{$name}_token",$salt);
+		return $salt;
+	}
+	public function assert_token($name, $token)
+	{
+		if (Yaf_Session::getInstance()->get("{$name}_token") != $token) {
+			http_response_code(401);
+			die();
+		}
+		Yaf_Session::getInstance()->del("{$name}_token");
+		return true;
 	}
 }

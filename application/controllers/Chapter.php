@@ -17,7 +17,7 @@ class ChapterController extends Yaf_Controller_Abstract {
 		$id = $this->getRequest()->getParam("Id"); 
 		$table = $Chapter->uncached_find($id);
 
-		$comments = $Comment->find("all","ChapterId = $id");
+		$comments = $Comment->uncached_find("all","ChapterId = $id");
 		foreach ($table as $item) {
 			$item->ChapterContent = rawurldecode($item->ChapterContent);
 			$item->avatar = App_Helper::getInstance()->get_gravatar($item->Email, 70);
@@ -30,6 +30,8 @@ class ChapterController extends Yaf_Controller_Abstract {
 		if ($this->getRequest()->isXmlHttpRequest()) {
 			$this->getResponse()->setBody(json_encode($table));
 		} else {
+			$token = App_Helper::getInstance()->generater_token('comment');
+			$this->getView()->assign("token", $token);
 			$this->getView()->assign("domain", $_SERVER['SERVER_NAME']);
 			$this->getView()->assign("Chapter", $table);
 			$this->getView()->assign("Comments",$comments);

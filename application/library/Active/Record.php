@@ -21,6 +21,7 @@
 			$tableList = array();
 			$redis = Redis_Cache::getInstance();
 			/* Generater CRM Object */
+			// $redis->del('_table_list');
 			if (!$redis->get('_table_list')) {
 				$tables = $db->query('SHOW TABLES');
 				$dbName = $db->getDbName();
@@ -35,6 +36,7 @@
 			} else {
 				$tableList = unserialize($redis->get('_table_list'));
 			}
+			// var_dump($tableList);
 			self::$tableList = $tableList;
 
 

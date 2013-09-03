@@ -25,12 +25,12 @@
 	<div class="container">
 		<div class="surface">
 			<div class="surface-inner">
+				{% for chapter in Chapter %}
 				<article>
-
 					<section class="post-page-wrapper">
 						<div class="post-page-inner">
 							<div class="author">
-								{% for chapter in Chapter %}
+								
 								 <img src="{{ chapter.avatar }}" >
 								 <a href='/user/{{chapter.UserId}}'>{{ chapter.UserName }}</a>
 								 <div class="publish-time">
@@ -40,16 +40,12 @@
 								 	<p>{{chapter.UpdateTime}}</p>
 								 </div>
 
-								{% endfor %}
+								
 							</div>
 							<div class="post-field">
-								{% for chapter in Chapter %}
 								<h1>{{chapter.ChapterTitle}}</h1>
 								<span class="time">{{chapter.UpdateTime}}</span>
-								<div class="body markdown">
-									{{chapter.ChapterContent}}
-								</div>
-								{% endfor %}
+								<div class="body markdown">{{chapter.ChapterContent}}</div>
 								
 								<div class="recommand">
 									<div class="before"></div>
@@ -75,17 +71,30 @@
 								{% for comment in Comments %}
 								<div class="comment-body">
 									<div class="comment-user">
-										<img src='{{comment.avatar}}' >
+
+										<a href='/Chapter/{{comment.UserId}}'><img src='{{comment.avatar}}' ></a>
 									</div>
 									<div class="comment-text">
 										<div class="arrow"></div>
-										{{comment.CommentText}}
+										<p>{{comment.CommentText}}</p>
+										<span class="floor">{{loop.index}}</span>
 										<span class="signature"><a href="/User/{{comment.UserId}}">{{comment.UserName}}</a></span>
 									</div>
 								</div>
 								{% else %}
 									<div class="empty"></div>
 								{% endfor %}
+								<div class="leave-comment">
+									{% if userid %}
+									<p>Leave your comment here</p>
+									<form action="/Comment" method="post">
+									<input type="hidden" value={{chapter.ChapterId}} name='ChapterId'>
+									<input type="hidden" value={{token}} name="token">
+									<textarea name='commentText'></textarea>
+									<button class='right small small-round success'>Submit</button>
+									</form>
+									{% endif %}
+								</div>
 							</div>
 
 						</div>
@@ -94,7 +103,7 @@
 
 					</footer>
 				</article>
-
+				{% endfor %}
 			</div>
 		</div>
 	</div>

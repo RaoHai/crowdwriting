@@ -80,7 +80,13 @@ body{
 	.post-page-wrapper{
 		margin-top: 0;
 		padding-top: 120px;
-			
+		.leave-comment{
+			margin-top: 50px;
+			textarea{
+				resize:none;
+				height: 80px;
+			}
+		}
 		.post-comments{
 			position: relative;
 			margin-top: 40px;
@@ -114,6 +120,7 @@ body{
 				margin-top: 40px;
 				padding-bottom: 100px;
 				.comment-body{
+					margin: 10px 0;
 					position: relative;
 					.comment-user{
 						position: absolute;
@@ -136,6 +143,19 @@ body{
 							background-color: white;
 							@include transform(rotate(45deg) translate(5px,-5px));
 							border:1px solid #efefef;
+
+						}
+						span.floor{
+							float: right;
+							position: absolute;
+							right: 0px;
+							top: 1px;
+							color:white;
+							width: 14px;
+							height: 14px;
+							font-size: 14px;
+							padding-left: 3px;
+							background-color: #dfdfdf;
 
 						}
 						span.signature{
@@ -232,11 +252,7 @@ body{
 					left: 0;
 					margin-bottom: 20px;
 				}
-				.small-round{
-					font-size: 14px;
-					border-radius: 3px;
-					@include box-shadow(white 0 0 0 0);
-				}
+				
 				button{
 					float: left;
 				}
@@ -289,6 +305,7 @@ body{
 					margin: 0.6em 0;
 				}
 				p, pre{
+					line-height: 1.8;	
 					font-size: 1em;
 					margin-bottom: 1.5em;
 				}

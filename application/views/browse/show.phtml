@@ -35,9 +35,7 @@
            {% for chapter in hotChapter %}
            <div class="chapter">
               <img src="{{ chapter.avatar }}"> <b><a href='/chapter/{{chapter.ChapterId}}'>{{chapter.ChapterTitle}}</a></b> <span class="time">{{chapter.UpdateTime}}</span>
-                <div class="markdown">
-                  {{chapter.Summary}}
-                </div>
+                <div class="markdown">{{chapter.Summary}}</div>
                 <span class="right"> <a href='/chapter/{{chapter.ChapterId}}'>READ MORE>> </a></span>
             </div>
            {% endfor %}

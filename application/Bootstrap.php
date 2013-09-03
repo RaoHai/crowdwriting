@@ -49,10 +49,10 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
         if (Yaf_Session::getInstance()->get('user') == '') {
           if (isset($_COOKIE['user']) && $_COOKIE['user']) {
             Yaf_Session::getInstance()->set('user', $_COOKIE['user']);
-            // $view->assign('userid', $_COOKIE['user']);
+            $view->assign('userid', $_COOKIE['user']);
           }  
         } else {
-          // $view->assign('userid',Yaf_Session::getInstance()->get('user'));
+          $view->assign('userid',Yaf_Session::getInstance()->get('user'));
         }
 
 
